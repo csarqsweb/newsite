@@ -1,4 +1,45 @@
 ---
+import { Image } from "astro:assets";
 
+import heroImage from '../../../assets/images/home/bg-hero.jpg'
 ---
 
+<div class="hero">
+
+  <Image class="img" src={heroImage} alt="Somos un estudio de arquitectura." quality="100"/>
+
+  <div class="row">
+    <h1>
+      <span>Somos un estudio de arquitectura.</span>
+      — Ubicado en Buenos Aires, Pilar
+    </h1>
+  </div>
+
+</div>
+
+<style>
+  .hero{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  .row{
+    position: absolute;
+    z-index: 2;
+  }
+  h1{
+    font-weight: 300;
+    span{
+      display: block;
+    }
+  }
+</style>
