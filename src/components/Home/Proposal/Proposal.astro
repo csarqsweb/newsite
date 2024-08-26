@@ -1,5 +1,15 @@
 ---
 
+import ProposalCard from './ProposalCard.astro';
+import cardsData from './Proposal.json';
+
 ---
 
-<div style={{height:'800px'}}></div>
+<div class="proposal" >
+  <div class="row">
+    <h2>Propuesta</h2>
+    {cardsData.map((card, index) => (
+      <ProposalCard num={index + 1} text={card.text} title={card.title} />
+    ))}
+  </div>
+</div>

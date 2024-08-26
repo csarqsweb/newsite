@@ -1,0 +1,16 @@
+---
+// Recibe `num` y `text` como props
+export interface Props {
+  num: number;
+  text: string;
+  title?: string;
+}
+
+const { num, text, title } = Astro.props;
+---
+<div class="card">
+  <div class="num">{num}</div>
+  <div class="text">
+    {title && <b>{title}</b>} {text}
+  </div>
+</div>
