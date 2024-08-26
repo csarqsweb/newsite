@@ -1,4 +1,96 @@
 ---
-
+import { Image } from "astro:assets";
+import Image1 from '../../../assets/images/clientes/sample1.jpg'
+import Image2 from '../../../assets/images/clientes/sample2.jpg'
 ---
 
+
+
+<div class="clientes" >
+  <div class="row">
+    <h2>Clientes</h2>
+    <!-- {cardsData.map((card, index) => (
+      <ProposalCard num={index + 1} text={card.text} title={card.title} />
+    ))} -->
+    <div class="grid">
+      <div class="col first">
+        <div class="item">
+          <a href="#" title="Proyecto">
+            <figure>
+              <Image class="img" src={Image1} alt="Somos un estudio de arquitectura." width={610}  quality="100"/>
+              <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
+            </figure>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#" title="Proyecto">
+            <figure>
+              <Image class="img" src={Image2} alt="Somos un estudio de arquitectura." width={400} quality="100"/>
+              <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
+            </figure>
+          </a>
+        </div>
+      </div>
+      <div class="col second">
+        <div class="item">
+          <a href="#" title="Proyecto">
+            <figure>
+              <Image class="img" src={Image2} alt="Somos un estudio de arquitectura." width={400} quality="100"/>
+              <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
+            </figure>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#" title="Proyecto">
+            <figure>
+              <Image class="img" src={Image1} alt="Somos un estudio de arquitectura." width={610} quality="100"/>
+              <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
+            </figure>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  @media screen and (min-width: 768px) {
+    .grid{
+      display: flex;
+      gap: 20px;
+    }
+    .col{
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+
+    }
+    .first{
+
+        align-items: flex-end;
+    }
+    .second{
+      align-items: start;
+    }
+    figure{
+      position: relative;
+      display: flex;
+
+      &::before{
+        content: '';
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, rgba(217, 217, 217, 0) 25.05%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .caption{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+</style>
