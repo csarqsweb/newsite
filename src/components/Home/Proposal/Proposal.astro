@@ -8,8 +8,44 @@ import cardsData from './Proposal.json';
 <div class="proposal" >
   <div class="row">
     <h2>Propuesta</h2>
+
+    <div class="container">
     {cardsData.map((card, index) => (
       <ProposalCard num={index + 1} text={card.text} title={card.title} />
     ))}
+    </div>
   </div>
 </div>
+
+
+<style>
+  .proposal{
+    padding: 30px 0;
+  }
+
+  h2{
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: -0.03em;
+    color: #000;
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 40px 0 0;
+  }
+  @media screen and (min-width: 768px) {
+    h2{
+      font-size: 32px;
+      line-height: 39px;
+    }
+    .container{
+      display: grid;
+      grid-auto-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 50px;
+    }
+  }
+</style>

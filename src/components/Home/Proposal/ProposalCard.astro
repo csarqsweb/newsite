@@ -9,8 +9,42 @@ export interface Props {
 const { num, text, title } = Astro.props;
 ---
 <div class="card">
-  <div class="num">{num}</div>
+  <div class="num">0{num}</div>
   <div class="text">
     {title && <b>{title}</b>} {text}
   </div>
 </div>
+
+<style>
+  .card{
+    display: flex;
+  }
+  .num{
+    flex: 40px 0 0;
+    margin: 2px 0 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.03em;
+    color: #A5A5A5;
+  }
+
+  b {
+    color: black;
+    font-weight: 600;
+  }
+  .text{
+    color: #4D4D4D;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+    letter-spacing: -0.03em;
+  }
+
+  @media screen and (min-width: 768px) {
+    .text{
+      font-size: 22px;
+      line-height: 27px;
+    }
+  }
+</style>
