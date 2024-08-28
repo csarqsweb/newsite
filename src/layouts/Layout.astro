@@ -46,6 +46,7 @@ const { title , description } = Astro.props;
 		color: inherit;
 	}
 	.row{
+		padding: 0 20px;
 		margin: auto;
 		max-width: 1200px;
 	}
@@ -67,5 +68,15 @@ const { title , description } = Astro.props;
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+
+
+	@media screen and (min-width: 768px) {
+		.hide-mobile{
+			display: block ;
+		}
+		.hide-desktop{
+			display: none;
+		}
 	}
 </style>

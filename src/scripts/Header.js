@@ -64,9 +64,7 @@
 		var scrollPosition = lastScrollY;
 		var updateScroll = Math.max(scrollPosition - 350 - Header.offsetHeight);
 
-		Header.classList[scrollPosition >= 70 ? 'add' : 'remove'](
-			'header--beforesticky',
-		);
+		Header.classList[scrollPosition >= 70 ? 'add' : 'remove']('header-before');
 
 		if (scrollPosition > 350 && updateScroll < 0) {
 			Header.style.position = 'fixed';

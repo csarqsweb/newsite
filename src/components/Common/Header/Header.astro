@@ -1,7 +1,10 @@
 ---
+import Hamburger from "./Hamburger.astro";
+
+const { class: className } = Astro.props;
 
 ---
-<header class="header">
+<header class={className} >
   <div class="row">
 
     <a href="/" class="logo" title="CS arquitectura">
@@ -13,9 +16,9 @@
       <span class="logo-text">CS arquitectura</span>
     </a>
 
-    <div class="header-right">
+    <div class="header-right hide-mobile">
 
-      <nav>
+      <nav >
         <a href="/estudio" class="nav-a" title="Estudio">Estudio</a>
         <a href="/proyectos" class="nav-a" title="Proyectos">Proyectos</a>
         <a href="/Contacto" class="nav-a" title="Contacto">Contacto</a>
@@ -23,6 +26,8 @@
 
       <a href="/presupuesto" class="btn-primary" title="Presupuesto">Presupuesto</a>
     </div>
+
+    <Hamburger />
   </div>
 
 </header>
@@ -30,6 +35,8 @@
 
 <style>
   .header{
+    padding: 35px 0;
+    position: fixed;
     width: 100%;
     z-index: 10;
   }
@@ -39,32 +46,68 @@
     align-items: center;
   }
   .header-right {
-    display: flex;
-    gap: 20px;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.1em;
+    display: none;
+
   }
   nav {
     gap: 15px;
     display: flex;
     align-items: center;
   }
+  .logo-svg{
+      height: 35px;
+      width: auto;
+    }
   .logo{
     display: flex;
     align-items: center;
     gap: 10px;
+
+
 
     path {
       stroke: black;
     }
   }
   .logo-text{
-    font-weight: 300;
-    font-size: 22px;
+    font-weight: 200;
+    font-size: 17px;
     line-height: 27px;
+    margin: 2px 0 0;
+  }
+
+  .header-home{
+    color: white;
+    path{
+      stroke: white;
+    }
+  }
+  .header-before{
+    background: white;
+    color: black;
+    padding: 10px 0;
+    box-shadow: 0px 2px 7px rgb(0 0 0 / 20%);
+    path{
+      stroke: black;
+    }
+  }
+  .header-before {
+  .line{
+    background: #000;
+  }
+}
+
+
+  @media screen and (min-width: 768px) {
+    .header-right {
+      display: flex;
+      gap: 20px;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.1em;
+    }
   }
 
 </style>
