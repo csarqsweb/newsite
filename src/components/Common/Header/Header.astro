@@ -49,15 +49,11 @@ const { class: className } = Astro.props;
     display: none;
 
   }
-  nav {
-    gap: 15px;
-    display: flex;
-    align-items: center;
-  }
+
   .logo-svg{
-      height: 35px;
-      width: auto;
-    }
+    height: 35px;
+    width: auto;
+  }
   .logo{
     display: flex;
     align-items: center;
@@ -73,7 +69,7 @@ const { class: className } = Astro.props;
     font-weight: 200;
     font-size: 17px;
     line-height: 27px;
-    margin: 2px 0 0;
+    /* margin: 2px 0 0; */
   }
 
   .header-home{
@@ -101,14 +97,34 @@ const { class: className } = Astro.props;
   @media screen and (min-width: 768px) {
     .header-right {
       display: flex;
-      gap: 20px;
+      gap: 25px;
       text-transform: uppercase;
-      font-weight: 400;
+      font-weight: 300;
       font-size: 14px;
       line-height: 17px;
       letter-spacing: 0.1em;
     }
+    .logo-svg{
+      height: 48px;
+      width: auto;
+    }
+    .logo-text{
+      font-size: 22px;
+    }
+    nav {
+      gap: 25px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-before{
+      .logo-svg{
+        height: 41px;
+        padding: 5px 0;
+        width: auto;
+      }
   }
+}
 
 </style>
 

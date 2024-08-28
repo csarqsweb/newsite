@@ -10,7 +10,7 @@ import heroImage from '../../../assets/images/home/bg-hero.jpg'
 
   <div class="row">
     <h1>
-      <span>Somos un estudio de arquitectura.</span>
+      <span>Somos un <b>estudio de arquitectura.</b></span>
       — Ubicado en Buenos Aires, Pilar
     </h1>
   </div>
@@ -33,13 +33,36 @@ import heroImage from '../../../assets/images/home/bg-hero.jpg'
   }
 
   .row{
+    width: 100%;
     position: absolute;
     z-index: 2;
   }
   h1{
-    font-weight: 300;
+    margin: 0;
+    padding: 0 20px;
+    font-weight: 200;
+    font-size: 28px;
+    max-width: 290px;
+    b {
+      font-weight: 300;
+    }
     span{
       display: block;
+      margin-bottom: 10px;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    h1{
+      padding: 0 ;
+      font-size: 66px;
+      max-width: inherit;
+
+    span{
+      margin-bottom: 0;
+    }
+  }
+
+
+}
 </style>
