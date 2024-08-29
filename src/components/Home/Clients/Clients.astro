@@ -17,7 +17,14 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
         <div class="item">
           <a href="#" title="Proyecto">
             <figure>
-              <Image class="img" src={Image1} alt="Somos un estudio de arquitectura." width={610}  quality="100"/>
+              <Image
+                class="img"
+                src={Image1}
+                width={Image1.width / 2}
+                densities={[1.5, 2]}
+                alt="Somos un estudio de arquitectura"
+              />
+
               <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
             </figure>
           </a>
@@ -25,7 +32,8 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
         <div class="item">
           <a href="#" title="Proyecto">
             <figure>
-              <Image class="img" src={Image2} alt="Somos un estudio de arquitectura." width={400} quality="100"/>
+              <Image class="img" src={Image2} alt="Somos un estudio de arquitectura." width={Image2.width / 2}
+              densities={[1.5, 2]}/>
               <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
             </figure>
           </a>
@@ -35,7 +43,8 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
         <div class="item">
           <a href="#" title="Proyecto">
             <figure>
-              <Image class="img" src={Image2} alt="Somos un estudio de arquitectura." width={400} quality="100"/>
+              <Image class="img" src={Image2} alt="Somos un estudio de arquitectura." width={Image2.width / 2}
+              densities={[1.5, 2]}/>
               <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
             </figure>
           </a>
@@ -43,7 +52,10 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
         <div class="item">
           <a href="#" title="Proyecto">
             <figure>
-              <Image class="img" src={Image1} alt="Somos un estudio de arquitectura." width={610} quality="100"/>
+              <Image class="img" src={Image1}
+              width={Image1.width / 2}
+              densities={[1.5, 2]}
+              alt="Somos un estudio de arquitectura"/>
               <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
             </figure>
           </a>
@@ -52,13 +64,21 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
     </div>
 
     <div class="clientes_footer">
-      <a href="/presupuesto" class="btn-primary" title="Presupuesto">Presupuesto</a>
+      <a href="/presupuesto" class="btn-primary" title="ir a Proyectos">ir a Proyectos</a>
     </div>
 
   </div>
 </div>
 
 <style>
+
+  h2{
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: -0.03em;
+    color: #000;
+  }
   .clientes_footer{
     text-align: center;
     display: flex;
@@ -66,30 +86,29 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
   }
   .btn-primary{
     margin: 0 auto;
-
   }
-  @media screen and (min-width: 768px) {
-    .grid{
-      display: flex;
-      gap: 20px;
+
+  .caption{
+    color: white;
+    font-weight: 300;
+    font-size: 17px;
+    bottom: 12px;
+    left: 12px;
+    /* letter-spacing: -0.03em; */
+    span{
+      font-size: 11px;
+      letter-spacing: 0.12em;
     }
-    .col{
-      gap: 20px;
+  }
+  .grid{
       display: flex;
+      gap: 20px;
       flex-direction: column;
-
+      justify-content: center;
     }
-    .first{
-
-        align-items: flex-end;
-    }
-    .second{
-      align-items: start;
-    }
-    figure{
+  figure{
       position: relative;
       display: flex;
-
       &::before{
         content: '';
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, rgba(217, 217, 217, 0) 25.05%);
@@ -102,8 +121,47 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
     }
     .caption{
       position: absolute;
-      bottom: 0;
-      left: 0;
     }
+    .col{
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    img{
+      max-width: 100%;
+      height: auto;
+    }
+
+  @media screen and (max-width: 768px) {
+    img{
+      max-width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+  }
+  @media screen and (min-width: 768px) {
+
+    .grid{
+      flex-direction: row;
+    }
+    h2{
+      font-size: 32px;
+      line-height: 39px;
+    }
+
+    .first{
+      align-items: flex-end;
+    }
+    .second{
+      align-items: start;
+    }
+
+    .clientes_footer {
+      a {
+        margin: 40px auto;
+      }
+    }
+
   }
 </style>

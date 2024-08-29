@@ -6,7 +6,12 @@ import heroImage from '../../../assets/images/home/bg-hero.jpg'
 
 <div class="hero">
 
-  <Image class="img" src={heroImage} alt="Somos un estudio de arquitectura." quality="100"/>
+  <Image
+    class="img"
+    src={heroImage}
+    width={heroImage.width / 2}
+    densities={[1.5, 2]}
+    alt="Somos un estudio de arquitectura." quality="100"/>
 
   <div class="row">
     <h1>
