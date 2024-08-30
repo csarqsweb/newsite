@@ -5,7 +5,8 @@
 		"paths": {
 			"@/components/*": ["src/components/*.astro"],
 			"@/layouts/*": ["src/layouts/*.astro"],
-			"@/assets/*": ["src/assets/*"]
+			"@/assets/*": ["src/assets/*"],
+			"@/scripts/*": ["src/scripts/*"]
 		}
 	}
 }

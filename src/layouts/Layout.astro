@@ -95,3 +95,102 @@ const { title , description } = Astro.props;
 		}
 	}
 </style>
+
+<script is:inline data-astro-rerun>
+	(function () {
+	'use strict';
+
+	function initHeader() {
+		var Header = document.querySelector('.header'),
+			viewportHeight = window.innerHeight,
+			lastScrollY =
+				window.scrollY ||
+				window.pageYOffset ||
+				document.documentElement.scrollTop,
+			ticking = false;
+
+		function Constructor() {
+			const LinkToggle = document.querySelectorAll('[data-togglenav]');
+
+			for (let e = 0; e < LinkToggle.length; e++) {
+				LinkToggle[e].addEventListener('click', NavToggle, false);
+			}
+			window.addEventListener('scroll', onScroll);
+		}
+
+		function NavToggle() {
+			const Nav = document.querySelector('.nav');
+			const NavOverlay = document.querySelector('.nav__overlay');
+			Nav.classList.toggle('active');
+			NavOverlay.classList.toggle('active');
+		}
+
+		function onScroll() {
+			lastScrollY =
+				window.scrollY ||
+				window.pageYOffset ||
+				document.documentElement.scrollTop;
+
+			requestTick();
+		}
+
+		function requestTick() {
+			if (!ticking) {
+				requestAnimationFrame(update);
+				ticking = true;
+			}
+		}
+
+		function update() {
+			const menuLinks = document.querySelectorAll('.header__ul a');
+
+			var scrollPosition = lastScrollY;
+			var updateScroll = Math.max(scrollPosition - 350 - Header.offsetHeight);
+
+			Header.classList[scrollPosition >= 70 ? 'add' : 'remove'](
+				'header-before',
+			);
+
+			if (scrollPosition > 350 && updateScroll < 0) {
+				Header.style.position = 'fixed';
+				Header.style.top = updateScroll + 'px';
+			}
+
+			if (updateScroll >= 0) {
+				Header.style.top = 0 + 'px';
+			}
+
+			if (scrollPosition < 350) {
+				Header.style.position = 'absolute';
+				Header.style.top = '0';
+			}
+
+			menuLinks.forEach((link) => {
+				const section = document.querySelector(link.getAttribute('href'));
+				const bounding = section.getBoundingClientRect();
+
+				if (
+					bounding.top <= window.innerHeight / 2 &&
+					bounding.bottom >= window.innerHeight / 2
+				) {
+					link.classList.add('active');
+				} else {
+					link.classList.remove('active');
+				}
+			});
+			ticking = false;
+		}
+
+		Constructor();
+	}
+
+	// Initialize header on page load
+	initHeader();
+
+	// Reinitialize header on Astro page load (useful in SPA mode)
+	window.addEventListener('astro:page-load', () => {
+		initHeader();
+	});
+})();
+
+</script>
