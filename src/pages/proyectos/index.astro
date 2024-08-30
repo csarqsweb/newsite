@@ -1,7 +1,7 @@
 ---
 import Footer from '@/components/Common/Footer/Footer';
 import Header from '@/components/Common/Header/Header';
-import Clients from '@/components/Home/Clients/Clients';
+import ClientsGrid from '@/components/Home/Clients/ClientsGrid';
 
 import Layout from '@/layouts/Layout';
 
@@ -11,9 +11,15 @@ import Layout from '@/layouts/Layout';
 <Layout title="Proyectos" >
 	<main>
 		<Header class={'header'} />
-		<div style={{height:'150px'}}></div>
-    <Clients />
+		<div style={{height:'100px'}}></div>
 
+		<section>
+			<div class="row">
+				<h1>Proyectos</h1>
+			</div>
+
+			<ClientsGrid />
+		</section>
 		<Footer />
 
 	</main>
@@ -21,6 +27,12 @@ import Layout from '@/layouts/Layout';
 
 <style>
 
+h1{
+	margin-bottom: 30px;
+}
+section{
+	margin-bottom: 80px;
+}
 
 </style>
 
