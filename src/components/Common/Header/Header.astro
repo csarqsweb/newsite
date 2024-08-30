@@ -1,6 +1,14 @@
 ---
 import Hamburger from "./Hamburger.astro";
 
+const links = [
+  { href: '/', text: 'Home' },
+  { href: '/estudio', text: 'Estudio' },
+  { href: '/proyectos', text: 'Proyectos' },
+  { href: '/contacto', text: 'Contacto' },
+];
+
+const currentPath = Astro.url.pathname;
 const { class: className } = Astro.props;
 
 ---
@@ -19,9 +27,32 @@ const { class: className } = Astro.props;
     <div class="header-right hide-mobile">
 
       <nav >
-        <a href="/estudio" class="nav-a" title="Estudio">Estudio</a>
+        <!-- <a href="/estudio" class="nav-a" title="Estudio">Estudio</a>
         <a href="/proyectos" class="nav-a" title="Proyectos">Proyectos</a>
-        <a href="/contacto" class="nav-a" title="Contacto">Contacto</a>
+        <a href="/contacto" class="nav-a" title="Contacto">Contacto</a> -->
+
+        {
+          links.map(({ href, text }) => (
+            <div>
+              <a
+                href={href}
+                class="nav-a"
+              >
+                {text}
+              </a>
+
+              {currentPath === href ? (
+                <div
+                  transition:name="menu-line"
+                  class="navline active"
+                />
+              ) : (
+                <div class="navline" />
+              )}
+              {/* <div class="border-b-2 border-blue-500 mx-4" /> */}
+            </div>
+          ))
+        }
       </nav>
 
       <a href="https://docs.google.com/forms/d/1Y2iOTg5PdUz4IUecq2LxIk8XFKfvmcMRzRZ_SaVLEtg/viewform?fbclid=PAZXh0bgNhZW0CMTEAAaZsD0xcidkVe6R_G9msWLb3_Q11yHuWWTC58BMOfmdkDvBb23g22TElYFU_aem_OYF7KxGs1Y4z9pRBbJKsfw&edit_requested=true" target="_blank" class="btn-primary" title="Presupuesto">Presupuesto</a>
@@ -123,6 +154,16 @@ const { class: className } = Astro.props;
         padding: 5px 0;
         width: auto;
       }
+  }
+  .navline{
+    width: 35px;
+    height: 2px;
+    background: transparent;
+    margin: 5px 0 0;
+
+    &.active{
+      background: #B49F7F;
+    }
   }
 }
 
