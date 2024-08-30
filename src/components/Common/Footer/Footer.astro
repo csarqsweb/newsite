@@ -40,5 +40,41 @@
   footer{
     background: black;
     color: white;
+    padding: 30px 0 40px;
+
+  }
+  .footer_bottom,
+  .footer_top,
+  .footer_links,
+  .footer_nav{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .footer_top{
+    gap: 20px;
+  }
+  .footer_nav {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 14px;
+    gap: 7px;
+    letter-spacing: 1px;
+}
+  .footer_bottom{
+    margin-top: 20px;
+    font-size: 13px;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 25px;
+    line-height: 25px;
+  }
+  .footer_links {
+    margin: 0 0 -75px;
+}
+  .logo{
+    align-items: flex-end;
+    text-align: right;
   }
 </style>
