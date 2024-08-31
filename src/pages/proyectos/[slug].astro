@@ -1,0 +1,22 @@
+---
+import projectsData from '../../data/projects.json'; // Suponiendo que tienes un JSON con datos de proyectos
+
+export async function getStaticPaths() {
+  // Extraer slugs de los proyectos
+  const paths = projectsData.map((project) => ({
+    params: { slug: project.slug },
+  }));
+
+  return paths; // Devuelve directamente el array
+}
+
+const { slug } = Astro.params;
+const project = projectsData.find((p) => p.slug === slug);
+
+if (!project) {
+  throw new Error(`Project not found for slug: ${slug}`);
+}
+---
+
+<h1>{project.title}</h1>
+<p>{project.description}</p>
