@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+	output: 'hybrid',
 	server: {
 		host: true, // Escuchar en todas las interfaces
 		// port: 3000, // Puedes cambiar el puerto si lo necesitas

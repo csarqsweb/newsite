@@ -1,0 +1,49 @@
+---
+import ProjectCard from '../../components/ProjectCard.astro';
+import { fetchContent } from '../../utils/fetchContent.js';
+
+// Extraer el slug de la URL
+const { slug } = Astro.params;
+
+// Importar los datos del proyecto desde el JSON
+const projects = import.meta.glob('../../data/projects.json', { eager: true });
+const projectData = projects['../../data/projects.json'].default;
+
+// Encontrar el proyecto correspondiente por slug
+const project = projectData.find(p => p.slug === slug);
+
+if (!project) {
+  throw new Error(`No se encontró el proyecto con el slug ${slug}`);
+}
+
+// Función para obtener las rutas estáticas
+export async function getStaticPaths() {
+  // Obtener todos los datos de los proyectos
+  const projects = import.meta.glob('../../data/projects.json', { eager: true });
+  const projectData = projects['../../data/projects.json'].default;
+
+  // Generar las rutas estáticas a partir de los slugs de los proyectos
+  return projectData.map(project => ({
+    params: { slug: project.slug }
+  }));
+}
+
+
+
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{project.title}</title>
+</head>
+<body>
+
+  <ProjectCard
+    title={project.title}
+    description={project.description}
+    image={project.image}
+  />
+  <a href="/projects">Volver a proyectos</a>
+</body>
+</html>

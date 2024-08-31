@@ -1,0 +1,14 @@
+[
+	{
+		"slug": "proyecto-1",
+		"title": "Proyecto 1",
+		"description": "Descripción del Proyecto 1",
+		"image": "/assets/images/clientes/sample1.jpg"
+	},
+	{
+		"slug": "proyecto-2",
+		"title": "Proyecto 2",
+		"description": "Descripción del Proyecto 2",
+		"image": "/assets/images/clientes/sample2.jpg"
+	}
+]
