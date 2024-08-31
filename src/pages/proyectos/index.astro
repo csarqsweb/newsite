@@ -1,4 +1,5 @@
 ---
+import CallToAction from '@/components/Common/CallToAction/CallToAction';
 import Footer from '@/components/Common/Footer/Footer';
 import Header from '@/components/Common/Header/Header';
 import ClientsGrid from '@/components/Home/Clients/ClientsGrid';
@@ -26,12 +27,10 @@ import Layout from '@/layouts/Layout';
 
 				<ClientsGrid />
 
-				<a class="btn-primary">
-					<span>presupuesto</span>
-				</a>
 
 			</div>
 		</section>
+		<CallToAction />
 		<Footer />
 
 	</main>
@@ -55,17 +54,15 @@ h2{
 	b{
 		font-weight: 400;
 	}
-	/* max-width: 240px; */
+
 }
 p{
 	font-size: 16px;
 	line-height: 1.4;
 	color: #565656;
-	/* letter-spacing: .5px; */
-	/* font-weight: 300; */
 }
 section{
-	margin-bottom: 80px;
+	margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -82,11 +79,11 @@ section{
 		font-size: 62px;
 	}
 	p{
+		color: #444;
 		font-size: 22px;
 		line-height: 1.5;
 		font-weight: 300;
 		margin: 40px 0 0 120px;
-		color: #444;
 	}
 }
 
