@@ -62,17 +62,80 @@ const { title , description } = Astro.props;
 		/* width: 100%; */
 	}
 
-	.btn-primary{
-		background: black;
-		color: white;
-    padding: 9px 17px 8px;
-    border-radius: 125px;
-		font-weight: 300;
-		text-transform: uppercase;
-		font-size: 14px;
-      line-height: 17px;
-      letter-spacing: 0.1em;
-	}
+
+.btn-primary {
+
+	padding: 9px 17px 8px;
+
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	cursor: pointer;
+	border: none;
+	background: black;
+	color: white;
+	border-radius: 125px;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.1em;
+	width: auto;
+  max-width: 150px;
+}
+
+.btn-primary:after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background: #B49F7F;
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
+}
+
+.btn-primary:hover::after {
+  right: auto;
+  left: 0;
+	top: 0;
+  width: 100%;
+}
+
+.btn-primary span {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  color: #fff;
+  letter-spacing: 0.1em;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover span {
+  color: #183153;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
 	code {
 		font-family:
 			Menlo,

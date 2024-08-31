@@ -14,11 +14,23 @@ import Layout from '@/layouts/Layout';
 		<div style={{height:'100px'}}></div>
 
 		<section>
-			<div class="row">
-				<h1>Proyectos</h1>
-			</div>
+			<header>
+				<div class="row">
+					<h1>Nuestros Proyectos </h1>
+					<h2><b>— Innovación y Diseño</b> en Cada Detalle</h2>
+					<p>Explora nuestra colección de proyectos arquitectónicos que reflejan nuestra dedicación al diseño innovador y a la excelencia en la construcción. Cada obra es una manifestación de nuestra visión, donde la funcionalidad y la estética se integran para crear espacios únicos que inspiran y mejoran la vida de quienes los habitan</p>
+				</div>
+			</header>
 
-			<ClientsGrid />
+			<div class="row">
+
+				<ClientsGrid />
+
+				<a class="btn-primary">
+					<span>presupuesto</span>
+				</a>
+
+			</div>
 		</section>
 		<Footer />
 
@@ -27,11 +39,55 @@ import Layout from '@/layouts/Layout';
 
 <style>
 
-h1{
+
+header{
 	margin-bottom: 30px;
+}
+h1{
+	font-weight: 400;
+	font-size: 28px;
+	margin: 2px 0 0;
+}
+h2{
+	font-weight: 300;
+	font-size: 18px;
+	margin: 3px 0 25px;
+	b{
+		font-weight: 400;
+	}
+	/* max-width: 240px; */
+}
+p{
+	font-size: 16px;
+	line-height: 1.4;
+	color: #565656;
+	/* letter-spacing: .5px; */
+	/* font-weight: 300; */
 }
 section{
 	margin-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+	header{
+		padding: 40px 0;
+	}
+	h1{
+		font-weight: 300;
+		font-size: 66px;
+		margin: 2px 0 0;
+	}
+	h2{
+		font-weight: 200;
+		font-size: 62px;
+	}
+	p{
+		font-size: 22px;
+		line-height: 1.5;
+		font-weight: 300;
+		margin: 40px 0 0 120px;
+		color: #444;
+	}
 }
 
 </style>
