@@ -80,7 +80,6 @@ const { class: className } = Astro.props;
   }
   .header-right {
     display: none;
-
   }
 
   .logo-svg{
@@ -91,8 +90,6 @@ const { class: className } = Astro.props;
     display: flex;
     align-items: center;
     gap: 10px;
-
-
 
     path {
       stroke: black;
@@ -125,7 +122,21 @@ const { class: className } = Astro.props;
     background: #000;
   }
 }
+  .invert{
 
+    .logo{
+      path{
+        stroke: white;
+      }
+    }
+    .btn-primary {
+      background: white;
+    color: black;
+    span{
+      color: black;
+    }
+    }
+  }
 
   @media screen and (min-width: 768px) {
     .header-right {

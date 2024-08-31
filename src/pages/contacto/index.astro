@@ -1,7 +1,5 @@
 ---
-import Footer from '@/components/Common/Footer/Footer';
 import Header from '@/components/Common/Header/Header';
-import Clients from '@/components/Home/Clients/Clients';
 
 import Layout from '@/layouts/Layout';
 
@@ -10,10 +8,19 @@ import Layout from '@/layouts/Layout';
 
 <Layout title="Contacto" >
 	<main>
-		<Header class={'header'} />
-		<div style={{height:'100px'}}></div>
-    <h1>Contacto</h1>
+		<Header class={'header invert'} />
 
+		<div class="center">
+			<div class="row">
+			<h1>Contactanos !</h1>
+			<div class="text">
+				<a href="callto:011 1560 1212" title="011 1560 1212">011 1560 1212</a>
+				<a href="mailto:hola@csarq.com" title="hola@csarq.com">hola@csarq.com</a>
+				<a href="https://www.instagram.com/cs.arqs" title="instagram de CS Arqs" target="_blank">@cs.arqs</a>
+			</div>
+			<p>Pilar, Buenos Aires. <span>Argentina</span></p>
+		</div>
+		</div>
 
 
 	</main>
@@ -21,6 +28,66 @@ import Layout from '@/layouts/Layout';
 
 <style>
 
+
+html,body{
+	background: black;
+	color: white;
+}
+.center{
+	position: relative;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+h1{
+	font-size: 28px;
+	font-weight: 400;
+}
+p{
+	color: #B5B5B5;
+	margin-top: 30px;
+}
+.text{
+	flex-direction: column;
+	display: flex;
+	font-size: 27px;
+	gap: 3px;
+	font-weight: 300;
+}
+.row{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+@media screen and (min-width: 768px) {
+	.row{
+		gap: 40px;
+	}
+	h1{
+		font-size: 32px;
+	}
+	.text{
+		font-size: 72px;
+	}
+
+	a{
+		transition: all 0.3s ease-out;
+		&:hover{
+			color: #B49F7F;
+		}
+	}
+	p {
+		font-size: 18px;
+		font-weight: 300;
+		span{
+			display: block;
+		}
+	}
+
+}
 
 </style>
 
