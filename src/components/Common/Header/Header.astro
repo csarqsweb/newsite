@@ -3,9 +3,9 @@ import Hamburger from "./Hamburger.astro";
 
 const links = [
   { href: '/', text: 'Home' },
-  { href: '/estudio', text: 'Estudio' },
-  { href: '/proyectos', text: 'Proyectos' },
-  { href: '/contacto', text: 'Contacto' },
+  { href: '/estudio/', text: 'Estudio' },
+  { href: '/proyectos/', text: 'Proyectos' },
+  { href: '/contacto/', text: 'Contacto' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -41,7 +41,9 @@ const { class: className } = Astro.props;
                 {text}
               </a>
 
-              {currentPath === href ? (
+              {
+
+              currentPath === href ? (
                 <div
                   transition:name="menu-line"
                   class="navline active"
