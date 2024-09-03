@@ -1,18 +1,72 @@
 ---
+import CallToAction from '@/components/Common/CallToAction/CallToAction';
 import Footer from '@/components/Common/Footer/Footer';
 import Header from '@/components/Common/Header/Header';
-
 import Layout from '@/layouts/Layout';
+import { Image } from 'astro:assets';
+import Image1 from '../../assets/images/team/josefina.jpg';
 
 
 ---
 
-<Layout title="Estudio" >
+<Layout title="Quiénes Somos" >
 	<main>
 		<Header class={'header'} />
 		<div style={{height:'100px'}}></div>
-    <h1>estudio!</h1>
 
+		<section>
+			<header>
+				<div class="row">
+					<h1>Nuestro <b>Estudio de Arquitecturas</b></h1>
+					<h2>— Diseño Vanguardista con Pasión</h2>
+					<p>CS Arquitectura es un estudio de arquitectura fundado por Josefina y Rocío, dos arquitectas apasionadas y comprometidas con el diseño de espacios únicos y funcionales. Con una sólida formación académica en la Universidad de Buenos Aires (UBA), han desarrollado su carrera en proyectos de diversa índole, desde residenciales hasta comerciales, siempre con un enfoque en la innovación y la calidad.</p>
+					<p>Con varios años de experiencia en el campo, Josefina y Rocío han consolidado un equipo multidisciplinario que trabaja en colaboración para materializar las ideas de sus clientes. Su visión se basa en la creación de espacios que no solo cumplen con los requisitos funcionales, sino que también reflejan la personalidad y las necesidades de quienes los habitan.</p>
+				</div>
+			</header>
+
+			<div class="row">
+
+				<h3 class="title">Equipo</h3>
+
+				<div class="team">
+
+					<div class="card">
+						<figure>
+							<Image
+									class="card_img"
+									src={Image1}
+									width={Image1.width / 2}
+									densities={[1.5, 2]}
+									alt="Josefina"
+								/>
+						</figure>
+						<h3 class="card_title">Josefina Clivio
+							<span>— Arquitecta</span>
+						</h3>
+						<a href="mailto:jose@arqu.com" title="jose@arqu.com">jose@arqu.com</a>
+						<a href="callto:+54 11 1212 1221" title="+54 11 1212 1221">+54 11 1212 1221</a>
+					</div>
+					<div class="card">
+						<figure>
+							<Image
+									class="card_img"
+									src={Image1}
+									width={Image1.width / 2}
+									densities={[1.5, 2]}
+									alt="Josefina"
+								/>
+						</figure>
+						<h3 class="card_title">Josefina Clivio
+							<span>— Arquitecta</span>
+						</h3>
+						<a href="mailto:jose@arqu.com" title="jose@arqu.com">jose@arqu.com</a>
+						<a href="callto:+54 11 1212 1221" title="+54 11 1212 1221">+54 11 1212 1221</a>
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<CallToAction />
 		<Footer />
 
 	</main>
@@ -21,5 +75,110 @@ import Layout from '@/layouts/Layout';
 <style>
 
 
+header{
+	margin-bottom: 30px;
+}
+h1{
+	font-weight: 300;
+	font-size: 28px;
+	margin: 2px 0 0;
+	b{
+		font-weight: 400;
+	}
+}
+h2{
+	font-weight: 300;
+	font-size: 18px;
+	margin: 3px 0 25px;
+	b{
+		font-weight: 400;
+	}
+
+}
+p{
+	font-size: 16px;
+	line-height: 1.4;
+	color: #565656;
+
+	+ p {
+		margin-top: 20px;
+	}
+}
+section{
+	margin-bottom: 10px;
+}
+
+.title{
+	font-weight: 500;
+	margin-bottom: 30px;
+	font-size: 18px;
+}
+.team{
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+.card{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+	a{
+		color: #444;
+		font-size: 14px;
+	}
+}
+.card_title{
+	font-size: 16px;
+	font-weight: 500;
+	margin: 5px 0;
+	span{
+		display: block;
+	}
+}
+@media screen and (min-width: 768px) {
+	header{
+		padding: 40px 0;
+	}
+	h1{
+		font-weight: 300;
+		font-size: 66px;
+		margin: 2px 0 0;
+	}
+	h2{
+		font-weight: 200;
+		font-size: 62px;
+	}
+	p{
+		color: #444;
+		font-size: 22px;
+		line-height: 1.5;
+		font-weight: 300;
+		margin: 40px 0 0 120px;
+	}
+
+	.title{
+		font-size: 32px;
+		margin-bottom: 50px;
+	}
+	.team{
+		flex-direction: row;
+		gap: 105px;
+	}
+	.card_title{
+		font-size: 22px;
+	}
+	.card {
+		gap: 8px;
+		a{
+			font-size: 16px;
+		}
+	}
+
+}
+
 </style>
+
+
+
 
