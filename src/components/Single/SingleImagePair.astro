@@ -1,0 +1,15 @@
+---
+
+const { images } = Astro.props;
+---
+
+<div class="image-pair">
+  {images.map(({ src, title, subtitle }) => (
+    <div class="image_item">
+      <img src={src} alt={title} />
+
+      <p>{title && title } {subtitle && <span>subtitle</span>}</p>
+
+    </div>
+  ))}
+</div>

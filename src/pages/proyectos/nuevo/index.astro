@@ -1,0 +1,118 @@
+---
+import CallToAction from '@/components/Common/CallToAction/CallToAction';
+import Footer from '@/components/Common/Footer/Footer';
+import Header from '@/components/Common/Header/Header';
+import SingleHero from '@/components/Single/SingleHero';
+import SingleImage from '@/components/Single/SingleImage';
+import SingleImageHero from '@/components/Single/SingleImageHero';
+import SingleImagePair from '@/components/Single/SingleImagePair';
+import SingleInfo from '@/components/Single/SingleInfo';
+
+import Layout from '@/layouts/Layout';
+
+
+---
+
+<Layout title="— Casa Acanforest" >
+	<main>
+		<Header class={'header'} />
+		<div style={{height:'100px'}}></div>
+
+		<section>
+			<header>
+				<div class="row">
+					<h1>— Casa Acanforest</h1>
+					<SingleHero />
+				</div>
+			</header>
+
+			<SingleImageHero />
+
+			<SingleInfo
+			title="La galeria"
+			text={[
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus, turpis pretium varius suscipit, lectus est interdum turpis, a ullamcorper felis ipsum eu neque. Fusce vitae sapien sed dolor tempor convallis. Nulla id velit nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum dapibus aliquam dapibus. Pellentesque at consectetur nibh, scelerisque iaculis massa. Vestibulum elit dolor, semper vel aliquet pretium, accumsan vel nunc. Quisque sit amet facilisis ante. Nunc consectetur hendrerit suscipit. Sed blandit, enim eget",
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus,",
+				"turpis pretium varius suscipit, lectus est interdum turpis, a ullamcorper felis ipsum."
+			]} />
+
+			<SingleImage />
+
+			<SingleImagePair images={[
+				{
+					src: "/images/clientes/sample_v.jpg",
+					title: "Título de la Imagen 1",
+					subtitle: "Subtítulo de la Imagen 1"
+				},
+				{
+					src: "/images/clientes/sample_v.jpg",
+					title: "Título de la Imagen 2",
+					subtitle: "Subtítulo de la Imagen 2"
+				}
+			]}/>
+
+
+		</section>
+
+		<CallToAction />
+		<Footer />
+
+	</main>
+</Layout>
+
+<style>
+
+
+header{
+	margin-bottom: 30px;
+}
+h1{
+	font-weight: 400;
+	font-size: 28px;
+	margin: 2px 0 0;
+}
+h2{
+	font-weight: 300;
+	font-size: 18px;
+	margin: 3px 0 25px;
+	b{
+		font-weight: 400;
+	}
+
+}
+p{
+	font-size: 16px;
+	line-height: 1.4;
+	color: #565656;
+}
+section{
+	margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+	header{
+		padding: 40px 0;
+	}
+	h1{
+		font-weight: 300;
+		font-size: 66px;
+		margin: 2px 0 0;
+	}
+	h2{
+		font-weight: 200;
+		font-size: 62px;
+	}
+	p{
+		color: #444;
+		font-size: 22px;
+		line-height: 1.5;
+		font-weight: 300;
+		margin: 40px 0 0 120px;
+	}
+}
+
+</style>
+
+
+
+

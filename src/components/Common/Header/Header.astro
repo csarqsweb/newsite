@@ -43,14 +43,29 @@ const { class: className } = Astro.props;
 
               {
 
-              currentPath === href ? (
-                <div
-                  transition:name="menu-line"
-                  class="navline active"
-                />
-              ) : (
-                <div class="navline" />
-              )}
+
+                href === "/" ?
+                (
+                  currentPath === href ? (
+                    <div
+                      class="navline active"
+                      transition-name="menu-line"
+                    />
+                  ) : (
+                    <div class="navline" />
+                  )
+                ) :
+                (
+                  currentPath.startsWith(href) ? (
+                    <div
+                      class="navline active"
+                      transition-name="menu-line"
+                    />
+                  ) : (
+                    <div class="navline" />
+                  )
+                )
+              }
               {/* <div class="border-b-2 border-blue-500 mx-4" /> */}
             </div>
           ))
