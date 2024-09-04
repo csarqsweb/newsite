@@ -1,29 +1,90 @@
 ---
 
 ---
-<div class="row">
-  <div class="hero">
-    <div class="info">
-      <div class="item">
-        <h3>Client</h3>
-        <p>Lorem impsim lorem</p>
-      </div>
-      <div class="item">
-        <h3>Client</h3>
-        <p>Lorem impsim lorem</p>
-      </div>
-      <div class="item">
-        <h3>Client</h3>
-        <p>Lorem impsim lorem</p>
-      </div>
-      <div class="item">
-        <h3>Client</h3>
-        <p>Lorem impsim lorem</p>
-      </div>
+
+<div class="hero">
+  <div class="info">
+    <div class="item">
+      <h3>Client</h3>
+      <p>Lorem impsim lorem</p>
     </div>
-    <div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate justo vel risus imperdiet luctus vel at dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit vulputate justo vel risus imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.   imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulput.</p>
-      <p>imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.  imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.  imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.  imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor. </p>
+    <div class="item">
+      <h3>Location</h3>
+      <p>Lorem impsim </p>
+    </div>
+    <div class="item">
+      <h3>Size</h3>
+      <p>200m2</p>
+    </div>
+    <div class="item">
+      <h3>Type</h3>
+      <p>Lorem impsim </p>
     </div>
   </div>
+  <div class="description">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate justo vel risus imperdiet luctus vel at dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit vulputate justo vel risus imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.   imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulput.</p>
+    <p>imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.  imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.  imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.  imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor. </p>
+  </div>
 </div>
+
+
+
+<style>
+
+  .hero{
+    display: flex;
+    flex-direction: column;
+    /* flex-direction: column-reverse; */
+    gap: 20px;
+  }
+
+ .info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+ }
+ h3{
+  font-weight: 500;
+ }
+ .item{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 14px;
+ }
+ .description{
+  font-size: 16px;
+  line-height: 1.4;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+ }
+ @media screen and (min-width: 768px) {
+
+  .hero{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .info {
+    flex: 0 0 400px;
+  }
+  h3{
+    font-size: 19px;
+    font-weight: 600;
+  }
+  .info{
+      gap: 20px;
+  }
+  .item{
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .description{
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.4;
+ }
+ }
+</style>

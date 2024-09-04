@@ -62,14 +62,19 @@ import Layout from '@/layouts/Layout';
 
 <style>
 
-
+section {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
 header{
 	margin-bottom: 30px;
 }
+
 h1{
 	font-weight: 400;
 	font-size: 28px;
-	margin: 2px 0 0;
+	margin: 2px 0 20px;
 }
 h2{
 	font-weight: 300;
@@ -91,12 +96,12 @@ section{
 
 @media screen and (min-width: 768px) {
 	header{
-		padding: 40px 0;
+		padding: 40px 0 0;
 	}
 	h1{
 		font-weight: 300;
 		font-size: 66px;
-		margin: 2px 0 0;
+		margin: 2px 0 50px;
 	}
 	h2{
 		font-weight: 200;
