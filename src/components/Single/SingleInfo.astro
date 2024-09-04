@@ -3,7 +3,7 @@
 const { text, title } = Astro.props;
 ---
 <div class="row">
-  <div class="mod">
+  <div class=`${title && title.length > 0 ? 'mod border' : 'mod'}`>
     <div class="mod_title">
       { title &&  <h3 class="title">{title}</h3>}
     </div>
@@ -26,11 +26,15 @@ const { text, title } = Astro.props;
 
 <style>
 .mod{
-  border-top: 1px solid rgba(0,0,0,.4);
+
   display: flex;
   flex-direction: column;
   padding-top: 10px;
   gap: 20px;
+
+  &.border{
+    border-top: 1px solid rgba(0,0,0,.4);
+  }
 }
 h3{
  font-size: 19px;
