@@ -6,10 +6,85 @@ const { images } = Astro.props;
 <div class="image-pair">
   {images.map(({ src, title, subtitle }) => (
     <div class="image_item">
-      <img src={src} alt={title} />
+      <img src={src} alt={title} width="520" />
 
-      <p>{title && title } {subtitle && <span>subtitle</span>}</p>
+      <span>{title && <b>{title}</b> } {subtitle && subtitle}</span>
 
     </div>
   ))}
 </div>
+
+<style>
+
+span{
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 21px;
+    letter-spacing: 0.12em;
+    margin: 12px 0 0;
+    display: block;
+    text-transform: uppercase;
+    b{
+      font-weight: 300;
+      text-transform: none;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+  }
+
+
+
+
+  .image-pair{
+    width: 100%;
+    max-width: 168rem;
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    grid-template-columns: var(--start-padding, 0) var(--first-image, 1fr) var(--overlap-x, .35fr) var(--second-image, 1fr) var(--end-padding, 0);
+    grid-template-rows: auto var(--overlap-y, min(10.7rem, 7.7vw)) auto;
+    --start-padding: .25fr;
+    --first-image: .75fr;
+    --overlap-x: .1fr;
+    --overlap-y: min(47rem, 33.33vw);
+    --second-image: .75fr;
+    --end-padding: .25fr;
+
+    max-width: 550px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 40px 0;
+    img{
+      max-width: 240px;
+    }
+  }
+  .image_item{
+    position: relative;
+  }
+  .image_item:nth-child(1){
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 2;
+  }
+  .image_item:nth-child(2){
+    grid-column: 3 / span 2;
+    grid-row: 2 / span 2;
+  }
+  @media screen and (min-width: 768px) {
+    .image-pair{
+
+
+    max-width: 1280px;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    img{
+      max-width: inherit;
+    }
+  }
+  }
+
+</style>
