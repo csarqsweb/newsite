@@ -4,8 +4,10 @@ const { images } = Astro.props;
 ---
 
 <div class="image-pair">
-  {images.map(({ src, title, subtitle }) => (
-    <div class="image_item">
+  {images.map(({ src, title, subtitle, parallax }) => (
+
+    <div class="image_item" {...(parallax && { 'data-speed': parallax })}>
+
       <img src={src} alt={title} width="520" />
 
       <span>{title && <b>{title}</b> } {subtitle && subtitle}</span>
@@ -62,9 +64,29 @@ span{
     img{
       max-width: 240px;
     }
+
+    .image_item:nth-child(1){
+      opacity: .8;
+
+      &:hover{
+        opacity: 1;
+        z-index: 2;
+      }
+    }
+    .image_item:nth-child(1):hover ~ .image_item:nth-child(2) {
+      opacity: 0.8;
+      transition: opacity 0.5s ease;
+    }
   }
   .image_item{
     position: relative;
+    transition:  opacity .5s ease;
+    /* opacity: 0.8; */
+    z-index: 0;
+    &:hover{
+      z-index: 2;
+      opacity: 1;
+    }
   }
   .image_item:nth-child(1){
     grid-column: 2 / span 2;
@@ -76,15 +98,44 @@ span{
   }
   @media screen and (min-width: 768px) {
     .image-pair{
+      max-width: 1280px;
+      padding-right: 3rem;
+      padding-left: 3rem;
 
-
-    max-width: 1280px;
-    padding-right: 3rem;
-    padding-left: 3rem;
     img{
       max-width: inherit;
     }
   }
-  }
+}
 
 </style>
+
+
+<script client:load >
+  (function () {
+    "use strict";
+
+    const parallaxElements = document.querySelectorAll(".image_item");
+
+    function updateParallax() {
+      parallaxElements.forEach(function (element) {
+        const rect = element.getBoundingClientRect();
+        const speed = parseFloat(element.getAttribute("data-speed"));
+
+        // Verificar si el elemento está en el viewport
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          const yPos = -(rect.top * speed);
+          element.style.transform = "translate3d(0, " + yPos + "px, 0)";
+        } else {
+          element.style.transform = "translate3d(0, 0, 0)";
+        }
+      });
+    }
+
+    // Actualizar el efecto parallax al desplazarse y al cargar la página
+    window.addEventListener("scroll", updateParallax);
+    window.addEventListener("resize", updateParallax);
+
+    updateParallax();
+  })();
+</script>
