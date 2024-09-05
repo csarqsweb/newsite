@@ -26,6 +26,7 @@ span{
     margin: 12px 0 0;
     display: block;
     text-transform: uppercase;
+    opacity: 0;
     b{
       font-weight: 300;
       text-transform: none;
@@ -52,12 +53,12 @@ span{
     grid-template-rows: auto var(--overlap-y, min(10.7rem, 7.7vw)) auto;
     --start-padding: .25fr;
     --first-image: .75fr;
-    --overlap-x: .1fr;
+    --overlap-x: fr;
     --overlap-y: min(47rem, 33.33vw);
     --second-image: .75fr;
     --end-padding: .25fr;
 
-    max-width: 550px;
+    max-width: 350px;
     margin-right: auto;
     margin-left: auto;
     padding: 40px 0;
@@ -97,10 +98,14 @@ span{
     grid-row: 2 / span 2;
   }
   @media screen and (min-width: 768px) {
+    span{
+      opacity: 1;
+    }
     .image-pair{
       max-width: 1280px;
       padding-right: 3rem;
       padding-left: 3rem;
+      --overlap-x: .1fr;
 
     img{
       max-width: inherit;
