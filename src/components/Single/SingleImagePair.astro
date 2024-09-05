@@ -46,6 +46,8 @@ span{
     margin-left: auto;
     padding-right: 3rem;
     padding-left: 3rem;
+
+
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
@@ -54,14 +56,15 @@ span{
     --start-padding: .25fr;
     --first-image: .75fr;
     --overlap-x: fr;
-    --overlap-y: min(47rem, 33.33vw);
+    --overlap-y: min(47rem, 40vw);
+
     --second-image: .75fr;
     --end-padding: .25fr;
 
     max-width: 350px;
     margin-right: auto;
     margin-left: auto;
-    padding: 40px 0;
+    padding: 0 0;
     img{
       max-width: 240px;
     }
@@ -106,6 +109,7 @@ span{
       padding-right: 3rem;
       padding-left: 3rem;
       --overlap-x: .1fr;
+      --overlap-y: min(47rem, 33.33vw);
 
     img{
       max-width: inherit;
