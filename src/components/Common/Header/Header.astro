@@ -31,17 +31,23 @@ const { class: className } = Astro.props;
         {
           links.map(({ href, text }) => (
             <div>
-              <a href={href} class="nav-a">
-                {text}
-              </a>
+
 
               {
                   (currentPath === href || (href === '/proyectos/' && currentPath.startsWith('/proyectos/'))) ? (
+
+
+                  <a href={href} class="nav-a active">
+                    {text}
+                  </a>
                   <div
                     transition:name="menu-line"
                     class="navline active"
                   />
                 ) : (
+                 <a href={href} class="nav-a">
+                    {text}
+                  </a>
                   <div class="navline" />
                 )
               }
@@ -57,13 +63,70 @@ const { class: className } = Astro.props;
       </a>
     </div>
 
-    <Hamburger />
+    <div id="menu-toggle" class="hamburger hide-desktop">
+
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+
+    </div>
   </div>
 
 </header>
 
 
+<nav id="offcanvas-menu" class="offcanvas-menu">
+  <ul>
+
+    {
+      links.map(({ href, text }) => (
+        <li>
+
+
+          {
+              (currentPath === href || (href === '/proyectos/' && currentPath.startsWith('/proyectos/'))) ? (
+
+
+              <a href={href} class="nav-a active">
+                {text}
+              </a>
+              <div
+                transition:name="menu-line"
+                class="navline active"
+              />
+            ) : (
+             <a href={href} class="nav-a">
+                {text}
+              </a>
+              <div class="navline" />
+            )
+          }
+          {/* <div class="border-b-2 border-blue-500 mx-4" /> */}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<div class="overlay" id="overlay"></div>
+
+
 <style>
+
+  .hamburger {
+
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .line {
+    background-color: #000;
+    display: block;
+    width: 27px;
+    height: 1px;
+  }
   .header{
     padding: 35px 0;
     position: fixed;
@@ -104,6 +167,11 @@ const { class: className } = Astro.props;
     path{
       stroke: white;
     }
+    .hamburger {
+      .line{
+        background: #fff;
+      }
+    }
   }
   .header-before{
     background: white;
@@ -115,11 +183,18 @@ const { class: className } = Astro.props;
     }
   }
   .header-before {
-  .line{
-    background: #000;
+    .hamburger {
+      .line{
+        background: black;
+      }
+    }
+
+    .line{
+      background: #000;
+    }
   }
-}
   .invert{
+
 
     .logo{
       path{
@@ -128,14 +203,101 @@ const { class: className } = Astro.props;
     }
     .btn-primary {
       background: white;
-    color: black;
-    span{
       color: black;
+      span{
+        color: black;
+      }
     }
+  }
+
+
+
+
+/* Off-canvas menu styling */
+.offcanvas-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    padding: 2rem;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.offcanvas-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.offcanvas-menu ul li {
+    margin: 1rem 0;
+}
+
+.offcanvas-menu ul li a {
+    color: white;
+      text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.1em;
+}
+
+/* Overlay background when the menu is open */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+/* Active state for the menu */
+.menu-open.offcanvas-menu {
+    display: block;
+    opacity: 1;
+}
+
+.menu-open.overlay {
+    display: block;
+    opacity: 1;
+}
+.navline{
+    width: 35px;
+    height: 2px;
+    background: transparent;
+    margin: 5px 0 0;
+
+
+    &.active{
+      background: #B49F7F;
+
+      }
+    }
+
+
+  .nav-a{
+    transition: .2s all ease-out;
+    &:not(.active):hover{
+      color: #B49F7F;
+
+      /* color: red; */
     }
   }
 
   @media screen and (min-width: 768px) {
+    .hamburger {
+      display: none;
+    }
     .header-right {
       display: flex;
       gap: 25px;
@@ -166,17 +328,35 @@ const { class: className } = Astro.props;
         width: auto;
       }
   }
-  .navline{
-    width: 35px;
-    height: 2px;
-    background: transparent;
-    margin: 5px 0 0;
 
-    &.active{
-      background: #B49F7F;
-    }
-  }
 }
 
 </style>
 
+
+
+<script client:load >
+
+window.addEventListener('load', () => {
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const offcanvasMenu = document.getElementById('offcanvas-menu');
+  const overlay = document.getElementById('overlay');
+
+  menuToggle.addEventListener('click', () => {
+    overlay.classList.toggle('menu-open');
+    offcanvasMenu.classList.toggle('menu-open');
+    document.body.classList.toggle('menu-open');
+  });
+
+  overlay.addEventListener('click', () => {
+  overlay.classList.remove('menu-open');
+    offcanvasMenu.classList.remove('menu-open');
+    document.body.classList.remove('menu-open');
+  });
+});
+
+
+
+
+</script>
