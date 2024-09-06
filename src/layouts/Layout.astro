@@ -5,7 +5,7 @@ interface Props {
 }
 
 import Head from '@/components/Common/Head/Head';
-import Navigator from '@/components/Common/Navigator/Navigator';
+
 // Supports weights 100-900
 import '@fontsource-variable/inter';
 const { title , description } = Astro.props;
@@ -15,7 +15,7 @@ const { title , description } = Astro.props;
 <html lang="es">
 	<Head title={title} description={description}/>
 	<body>
-		<Navigator />
+
 		<slot />
 	</body>
 </html>
