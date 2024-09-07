@@ -1,32 +1,23 @@
 ---
-
+const { items, description } = Astro.props;
 ---
 
 <div class="hero">
   <div class="info">
-    <div class="item">
-      <span class="title">Client</span>
-      <p>Lorem impsim lorem</p>
-    </div>
-    <div class="item">
-      <span class="title">Location</span>
-      <p>Lorem impsim </p>
-    </div>
-    <div class="item">
-      <span class="title">Size</span>
-      <p>200m2</p>
-    </div>
-    <div class="item">
-      <span class="title">Type</span>
-      <p>Lorem impsim </p>
-    </div>
+    {items.map((item) => (
+      <div class="item">
+        <span class="title">{item.title}</span>
+        <p>{item.text}</p>
+      </div>
+    ))}
   </div>
   <div class="description">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate justo vel risus imperdiet luctus vel at dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit vulputate justo vel risus imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.   imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulput.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate justo vel risus imperdiet luctus vel at dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit vulputate justo vel risus imperdiet luctus vel at dolor. vulputate justo vel risus imperdiet luctus vel at dolor.   imperdiet luctus vel at dolor. </p>
-
+    {description.map((para) => (
+      <p>{para}</p>
+    ))}
   </div>
 </div>
+
 
 
 
