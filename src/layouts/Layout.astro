@@ -161,6 +161,9 @@ const { title , description } = Astro.props;
 	}
 </style>
 
+
+
+
 <script is:inline data-astro-rerun>
 	(function () {
 	'use strict';
@@ -174,6 +177,10 @@ const { title , description } = Astro.props;
 				document.documentElement.scrollTop,
 			ticking = false;
 
+		const menuToggle = document.getElementById('menu-toggle');
+		const offcanvasMenu = document.getElementById('offcanvas-menu');
+		const overlay = document.getElementById('overlay');
+
 		function Constructor() {
 			const LinkToggle = document.querySelectorAll('[data-togglenav]');
 
@@ -181,6 +188,19 @@ const { title , description } = Astro.props;
 				LinkToggle[e].addEventListener('click', NavToggle, false);
 			}
 			window.addEventListener('scroll', onScroll);
+
+
+		menuToggle.addEventListener('click', () => {
+			overlay.classList.toggle('menu-open');
+			offcanvasMenu.classList.toggle('menu-open');
+			document.body.classList.toggle('menu-open');
+		});
+
+		overlay.addEventListener('click', () => {
+		overlay.classList.remove('menu-open');
+			offcanvasMenu.classList.remove('menu-open');
+			document.body.classList.remove('menu-open');
+		});
 		}
 
 		function NavToggle() {

@@ -1,5 +1,5 @@
 ---
-import Hamburger from "./Hamburger.astro";
+
 
 const links = [
   { href: '/', text: 'Home' },
@@ -195,7 +195,11 @@ const { class: className } = Astro.props;
   }
   .invert{
 
-
+    .hamburger {
+      .line{
+        background: white;
+      }
+    }
     .logo{
       path{
         stroke: white;
@@ -334,29 +338,3 @@ const { class: className } = Astro.props;
 </style>
 
 
-
-<script client:load >
-
-window.addEventListener('load', () => {
-
-  const menuToggle = document.getElementById('menu-toggle');
-  const offcanvasMenu = document.getElementById('offcanvas-menu');
-  const overlay = document.getElementById('overlay');
-
-  menuToggle.addEventListener('click', () => {
-    overlay.classList.toggle('menu-open');
-    offcanvasMenu.classList.toggle('menu-open');
-    document.body.classList.toggle('menu-open');
-  });
-
-  overlay.addEventListener('click', () => {
-  overlay.classList.remove('menu-open');
-    offcanvasMenu.classList.remove('menu-open');
-    document.body.classList.remove('menu-open');
-  });
-});
-
-
-
-
-</script>
