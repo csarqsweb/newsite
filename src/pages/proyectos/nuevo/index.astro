@@ -10,8 +10,18 @@ import SingleInfo from '@/components/Single/SingleInfo';
 
 import Layout from '@/layouts/Layout';
 
+import imageHero from '../../../assets/images/clientes/sample1.jpg'
+import galeria1 from '../../../assets/images/clientes/galeria_v1.jpg'
+import galeria2 from '../../../assets/images/clientes/galeria_v2.jpg'
+
+
+
+import comedor1 from '../../../assets/images/clientes/sample_v.jpg'
+import comedor2 from '../../../assets/images/clientes/sample_v2.jpg'
+
 
 ---
+
 
 <Layout title="— Casa Acanforest" >
 	<main>
@@ -26,7 +36,7 @@ import Layout from '@/layouts/Layout';
 				</div>
 			</header>
 
-			<SingleImageHero />
+			<SingleImageHero image={imageHero} />
 
 			<SingleInfo
 			title="La galeria"
@@ -36,12 +46,12 @@ import Layout from '@/layouts/Layout';
 
 			<SingleImagePair images={[
 				{
-					src: "/images/clientes/galeria_v1.jpg",
+					image: galeria1,
 					title: "Quintessa Estate",
 					subtitle: "CALIFORNIA"
 				},
 				{
-					src: "/images/clientes/galeria_v2.jpg",
+					image: galeria2,
 					title: "Quintessa Estate",
 					subtitle: "CALIFORNIA",
 					parallax: '0.07'
@@ -62,12 +72,12 @@ import Layout from '@/layouts/Layout';
 
 			<SingleImagePair images={[
 				{
-					src: "/images/clientes/sample_v.jpg",
+					image: comedor1,
 					title: "Quintessa Estate",
 					subtitle: "CALIFORNIA"
 				},
 				{
-					src: "/images/clientes/sample_v2.jpg",
+					image: comedor2,
 					title: "Quintessa Estate",
 					subtitle: "CALIFORNIA",
 					parallax: '0.07'

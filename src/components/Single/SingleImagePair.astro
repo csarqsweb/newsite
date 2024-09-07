@@ -1,14 +1,24 @@
 ---
+import { Image } from "astro:assets";
+
 
 const { images } = Astro.props;
+
 ---
 
 <div class="image-pair">
-  {images.map(({ src, title, subtitle, parallax }) => (
+  {images.map(({ image, title, subtitle, parallax }) => (
 
     <div class="image_item" {...(parallax && { 'data-speed': parallax })}>
 
-      <img src={src} alt={title} width="520" />
+          <Image
+            class="img"
+            src={image}
+            width={image.width / 2}
+            densities={[1.5, 2]}
+            alt="Somos un estudio de arquitectura"
+          />
+      {/* <img src={src} alt={title} width="520" /> */}
 
       <span>{title && <b>{title}</b> } {subtitle && subtitle}</span>
 

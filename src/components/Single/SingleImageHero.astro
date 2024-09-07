@@ -1,10 +1,22 @@
 ---
+import { Image } from "astro:assets";
+
+const { image } = Astro.props
+
+
 
 ---
 
 <div class="image_hero">
   <figure>
-    <img src="/images/clientes/sample1.jpg" alt="imagen" width="1360" height="600" >
+    <Image
+            class="img"
+            src={image}
+            width={image.width / 2}
+            densities={[1.5, 2]}
+            alt="Somos un estudio de arquitectura"
+          />
+
   </figure>
   <div class="row">
     <span><b>Quintessa Estate</b> CALIFORNIA</span>
