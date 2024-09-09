@@ -63,13 +63,22 @@ const { class: className } = Astro.props;
       </a>
     </div>
 
-    <div id="menu-toggle" class="hamburger hide-desktop">
+    <!-- <div id="menu-toggle" class="hamburger hide-desktop">
 
       <span class="line"></span>
       <span class="line"></span>
       <span class="line"></span>
 
-    </div>
+    </div> -->
+
+
+  <button id="menu-toggle" class="burger hamburger hide-desktop" >
+    <!-- <input type="checkbox" id="burger"> -->
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+    </button>
+
   </div>
 
 </header>
@@ -112,6 +121,70 @@ const { class: className } = Astro.props;
 
 
 <style>
+
+
+
+/* From Uiverse.io by Cevorob */
+.burger {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  border: 0;
+}
+
+.burger input {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: black;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.menu-open .burger span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+
+.menu-open .burger span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.menu-open .burger span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 22px;
+  left: 5px;
+}
 
   .hamburger {
 
@@ -183,7 +256,7 @@ const { class: className } = Astro.props;
     }
   }
   .header-before {
-    .hamburger {
+    .burger {
       .line{
         background: black;
       }
@@ -195,7 +268,7 @@ const { class: className } = Astro.props;
   }
   .invert{
 
-    .hamburger {
+    .burger {
       .line{
         background: white;
       }
@@ -258,7 +331,7 @@ const { class: className } = Astro.props;
       text-decoration: none;
     text-transform: uppercase;
     font-weight: 300;
-    font-size: 25px;
+    font-size: 19px;
     line-height: 17px;
     letter-spacing: 0.1em;
 }
@@ -293,7 +366,7 @@ const { class: className } = Astro.props;
   path {
     stroke: white;
   }
-  & .hamburger {
+  & .burger {
     .line {
         background: white;
     }
@@ -333,7 +406,7 @@ const { class: className } = Astro.props;
   }
 
   @media screen and (min-width: 768px) {
-    .hamburger {
+    .burger {
       display: none;
     }
     .header-right {
