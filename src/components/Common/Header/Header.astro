@@ -79,8 +79,8 @@ const { class: className } = Astro.props;
   <ul>
 
     {
-      links.map(({ href, text }) => (
-        <li>
+      links.map(({ href, text }, index) => (
+        <li style={`--menu-item: ${index}; `}>
 
 
           {
@@ -108,7 +108,7 @@ const { class: className } = Astro.props;
   </ul>
 </nav>
 
-<div class="overlay" id="overlay"></div>
+<!-- <div class="overlay" id="overlay"></div> -->
 
 
 <style>
@@ -223,13 +223,18 @@ const { class: className } = Astro.props;
     top: 0;
     right: 0;
     height: 100%;
-    width: 250px;
+    width: 100%;
     background-color: #333;
     padding: 2rem;
-    display: none;
+    pointer-events: none;
+    /* display: none; */
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 1000;
+    z-index: 9;
+    box-sizing: border-box;
+    justify-content: end;
+    display: flex;
+    flex-direction: column;
 }
 
 .offcanvas-menu ul {
@@ -238,7 +243,14 @@ const { class: className } = Astro.props;
 }
 
 .offcanvas-menu ul li {
-    margin: 1rem 0;
+  margin: 20px 0 0;
+  --easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --wait-until-start: 0.15s;
+    --time-between: 50ms;
+    --anim-len: 1s;
+    transition: transform 0s var(--nav-open-len), opacity 0s var(--nav-open-len);
+    transform: translateX(-5em);
+    opacity: 0;
 }
 
 .offcanvas-menu ul li a {
@@ -246,7 +258,7 @@ const { class: className } = Astro.props;
       text-decoration: none;
     text-transform: uppercase;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 25px;
     line-height: 17px;
     letter-spacing: 0.1em;
 }
@@ -267,7 +279,29 @@ const { class: className } = Astro.props;
 
 /* Active state for the menu */
 .menu-open.offcanvas-menu {
-    display: block;
+    /* display: block; */
+    pointer-events: visible;
+    opacity: 1;
+}
+.menu-open.header{
+  position: fixed !important;
+  top: 0px !important;
+  background:transparent;
+  box-shadow: inherit;
+  color: white;
+
+  path {
+    stroke: white;
+  }
+  & .hamburger {
+    .line {
+        background: white;
+    }
+  }
+}
+.menu-open.offcanvas-menu ul li {
+    transition: transform var(--anim-len) calc(var(--menu-item)* var(--time-between) + var(--wait-until-start)) var(--easing), opacity var(--anim-len) calc(var(--menu-item)* var(--time-between) + var(--wait-until-start)) var(--easing);
+    transform: translateX(0px);
     opacity: 1;
 }
 

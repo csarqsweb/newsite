@@ -179,7 +179,7 @@ const { title , description } = Astro.props;
 
 		const menuToggle = document.getElementById('menu-toggle');
 		const offcanvasMenu = document.getElementById('offcanvas-menu');
-		const overlay = document.getElementById('overlay');
+		//const overlay = document.getElementById('overlay');
 
 		function Constructor() {
 			const LinkToggle = document.querySelectorAll('[data-togglenav]');
@@ -191,16 +191,17 @@ const { title , description } = Astro.props;
 
 
 		menuToggle.addEventListener('click', () => {
-			overlay.classList.toggle('menu-open');
+			//overlay.classList.toggle('menu-open');
+			Header.classList.toggle('menu-open');
 			offcanvasMenu.classList.toggle('menu-open');
 			document.body.classList.toggle('menu-open');
 		});
 
-		overlay.addEventListener('click', () => {
-		overlay.classList.remove('menu-open');
-			offcanvasMenu.classList.remove('menu-open');
-			document.body.classList.remove('menu-open');
-		});
+		// overlay.addEventListener('click', () => {
+		// overlay.classList.remove('menu-open');
+		// 	offcanvasMenu.classList.remove('menu-open');
+		// 	document.body.classList.remove('menu-open');
+		// });
 		}
 
 		function NavToggle() {
