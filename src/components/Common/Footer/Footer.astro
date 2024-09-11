@@ -1,4 +1,6 @@
 ---
+import { siteLinks } from "src/data/site.config";
+const currentPath = Astro.url.pathname;
 
 ---
 
@@ -7,9 +9,29 @@
     <div class="footer_top">
 
       <div class="footer_nav">
-        <a href="/estudio" class="footer_nav_a" title="Estudio"><span class="link">Estudio</span></a>
+
+        {
+          siteLinks.map(({ href, text }, index) => (
+
+                  (currentPath === href || (href === '/proyectos/' && currentPath.startsWith('/proyectos/'))) ? (
+
+
+                  <a href={href} class="footer_nav_a active">
+                    <span class="link">{text}</span>
+                  </a>
+
+                ) : (
+                 <a href={href} class="footer_nav_a">
+                    <span class="link">{text}</span>
+                  </a>
+
+                )
+
+          ))
+        }
+        <!-- <a href="/estudio" class="footer_nav_a" title="Estudio"><span class="link">Estudio</span></a>
         <a href="/proyectos" class="footer_nav_a" title="Proyectos"><span class="link">Proyectos</span></a>
-        <a href="/contacto" class="footer_nav_a" title="Contacto"><span class="link">Contacto</span></a>
+        <a href="/contacto" class="footer_nav_a" title="Contacto"><span class="link">Contacto</span></a> -->
       </div>
 
       <div class="footer_links">
@@ -53,7 +75,7 @@
     font-size: 16px;
   }
   a{
-    padding: 2px 0;
+    padding: 5px 0;
   }
 
   .footer_top{
@@ -83,6 +105,27 @@
     bottom: 0;
     right: 0;
   }
+  .link {
+    position: relative;
+  }
+  .link:after {
+    content: '';
+    border-bottom: 2px solid #B49F7F;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    margin-top: 2px;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    opacity: 1;
+    transition: .2s linear;
+  }
+  .active .link::after {
+      visibility: visible;
+      opacity: 0.7;
+      width: 100%;
+    }
   @media screen and (min-width: 768px) {
 
     footer{
@@ -112,23 +155,13 @@
       margin-top: 40px;
       font-weight: 300;
     }
-    .link {
-      position: relative;
-
-    }
 
     .link:after {
-      content: '';
-      border-bottom: 2px solid #B49F7F;
-      width: 0;
-      height: 100%;
-      position: absolute;
       margin-top: 4px;
-      top: 0;
-      left: 0px;
-      visibility: hidden;
-      opacity: 1;
-      transition: .2s linear;
+    }
+
+    a{
+      padding: 2px 0;
     }
 
     .link:hover::after {

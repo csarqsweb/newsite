@@ -1,12 +1,6 @@
 ---
+import { siteLinks } from "src/data/site.config";
 
-
-const links = [
-  { href: '/', text: 'Home' },
-  { href: '/estudio/', text: 'Estudio' },
-  { href: '/proyectos/', text: 'Proyectos' },
-  { href: '/contacto/', text: 'Contacto' },
-];
 
 const currentPath = Astro.url.pathname;
 const { class: className } = Astro.props;
@@ -29,7 +23,7 @@ const { class: className } = Astro.props;
       <nav >
 
         {
-          links.map(({ href, text }) => (
+          siteLinks.map(({ href, text }) => (
             <div>
 
 
@@ -88,7 +82,7 @@ const { class: className } = Astro.props;
   <ul>
 
     {
-      links.map(({ href, text }, index) => (
+      siteLinks.map(({ href, text }, index) => (
         <li style={`--menu-item: ${index}; `}>
 
 

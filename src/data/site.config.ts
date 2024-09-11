@@ -20,3 +20,10 @@ export const siteConfig: SiteConfig = {
 	shareMessage: 'Share this post', // Message to share a post on social media
 	paginationSize: 6, // Number of posts per page
 };
+
+export const siteLinks = [
+	{ href: '/', text: 'Home' },
+	{ href: '/estudio/', text: 'Estudio' },
+	{ href: '/proyectos/', text: 'Proyectos' },
+	{ href: '/contacto/', text: 'Contacto' },
+];
