@@ -14,6 +14,26 @@ const { title , description } = Astro.props;
 <!doctype html>
 <html lang="es">
 	<Head title={title} description={description}/>
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "CS Arquitectura",
+			"url": "https://csarqs.vercel.app",
+			"logo": "https://csarqs.vercel.app/favicon.svg",
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"telephone": "+54 123 456 789",
+				"contactType": "Customer Service",
+				"areaServed": "ES",
+				"availableLanguage": ["Spanish"]
+			},
+			"sameAs": [
+				"https://www.instagram.com/cs.arqs"
+			]
+		}
+		</script>
 	<body>
 
 		<slot />
