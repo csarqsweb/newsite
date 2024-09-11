@@ -7,7 +7,7 @@ import { siteConfig } from 'src/data/site.config'
 export interface Props {
 	title: string
 	description?: string
-	tags: string
+	tags?: string
 	ogImage?: string | undefined
 	articleDate?: string | undefined
 }
@@ -74,5 +74,25 @@ const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
 
 <!-- RSS auto-discovery -->
 <link rel='alternate' type='application/rss+xml' title={siteConfig.title} href='/rss.xml' />
+
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "CS Arquitectura",
+		"url": "https://csarqs.vercel.app",
+		"logo": "https://csarqs.vercel.app/favicon.svg",
+		"contactPoint": {
+			"@type": "ContactPoint",
+			"telephone": "+54 123 456 789",
+			"contactType": "Customer Service",
+			"areaServed": "ES",
+			"availableLanguage": ["Spanish"]
+		},
+		"sameAs": [
+			"https://www.instagram.com/cs.arqs"
+		]
+	}
+	</script>
 
 </head>
