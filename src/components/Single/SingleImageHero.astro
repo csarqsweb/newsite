@@ -10,6 +10,7 @@ const { image } = Astro.props
 <div class="image_hero">
   <figure>
     <Image
+      loading="eager"
             class="img"
             src={image}
             width={image.width / 2}

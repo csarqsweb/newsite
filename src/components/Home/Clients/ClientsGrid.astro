@@ -11,6 +11,7 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
       <a href="/proyectos/nuevo" title="Proyecto">
         <figure>
           <Image
+          loading="eager"
             class="img"
             src={Image1}
             width={Image1.width / 2}
@@ -18,16 +19,17 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
             alt="Somos un estudio de arquitectura"
           />
 
-          <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
+          <span class="caption">Casa Acanforest  <span>OBRA NUEVA</span></span>
         </figure>
       </a>
     </div>
     <div class="item">
       <a href="/proyectos/nuevo" title="Proyecto">
         <figure>
-          <Image class="img" src={Image2} alt="Somos un estudio de arquitectura." width={Image2.width / 2}
+          <Image
+          loading="lazy" class="img" src={Image2} alt="Somos un estudio de arquitectura." width={Image2.width / 2}
           densities={[1.5, 2]}/>
-          <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
+          <span class="caption">Casa Chacras  <span>PROYECTO</span></span>
         </figure>
       </a>
     </div>
@@ -36,20 +38,22 @@ import Image2 from '../../../assets/images/clientes/sample2.jpg'
     <div class="item">
       <a href="/proyectos/nuevo" title="Proyecto">
         <figure>
-          <Image class="img" src={Image2} alt="Somos un estudio de arquitectura." width={Image2.width / 2}
+          <Image
+          loading="eager" class="img" src={Image2} alt="Somos un estudio de arquitectura." width={Image2.width / 2}
           densities={[1.5, 2]}/>
-          <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
+          <span class="caption">Casa La Cuesta  <span>INTERIORISMO</span></span>
         </figure>
       </a>
     </div>
     <div class="item">
       <a href="/proyectos/nuevo" title="Proyecto">
         <figure>
-          <Image class="img" src={Image1}
+          <Image
+          loading="lazy" class="img" src={Image1}
           width={Image1.width / 2}
           densities={[1.5, 2]}
           alt="Somos un estudio de arquitectura"/>
-          <span class="caption">Quintessa Estate  <span>CALIFORNIA</span></span>
+          <span class="caption">Casa San Francisco  <span>REFORMA</span></span>
         </figure>
       </a>
     </div>
