@@ -37,6 +37,7 @@ const { title , description } = Astro.props;
 		/* font-family: system-ui, sans-serif; */
 		font-family: 'Inter Variable', sans-serif;
 		background: #f2f2f2;
+		scroll-behavior: smooth;
 	}
 	body{
 		margin: 0;
@@ -167,6 +168,7 @@ const { title , description } = Astro.props;
 
 
 <script is:inline data-astro-rerun>
+
 	(function () {
 	'use strict';
 
@@ -280,5 +282,11 @@ const { title , description } = Astro.props;
 		initHeader();
 	});
 })();
+
+
+</script>
+<script>
+  // Espera hasta que el video se cargue y luego aplica la clase "loaded"
+
 
 </script>

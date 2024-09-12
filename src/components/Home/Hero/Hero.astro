@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-
+import { onAfterUpdate } from 'astro:afterUpdate';
 import heroImage from '../../../assets/images/home/bg-hero.jpg'
 ---
 
@@ -15,7 +15,7 @@ import heroImage from '../../../assets/images/home/bg-hero.jpg'
     loading="eager" quality="100"/> -->
 
 
-    <video class="video" width="600" autoplay loop muted playsinline>
+    <video id="hero-video" class="video" width="600" autoplay loop muted playsinline>
       <source src="https://res.cloudinary.com/dacqh0npj/video/upload/v1726099415/csarq/4457865-uhd_3840_2160_24fps_dgmaud.mp4" type="video/mp4">
       <source src="https://res.cloudinary.com/dacqh0npj/video/upload/v1726099282/csarq/4457865-uhd_3840_2160_24fps_1_tnox5n.webm" type="video/webm">
       <source src="https://res.cloudinary.com/dacqh0npj/video/upload/v1726099070/csarq/4457865-uhd_3840_2160_24fps_pt2tok.ogg" type="video/ogg">
@@ -28,15 +28,60 @@ import heroImage from '../../../assets/images/home/bg-hero.jpg'
       <span>Somos un <b>estudio de arquitectura</b></span>
       — que transforma ideas en espacio.
     </h1>
+
+  </div>
+
+  <div class="hero_scroll">
+
+    <a href="#proposal" class="lkn_scroll" title="Ir a Propuesta" aria-label="Ir a Propuesta">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M11.9997 13.1716L7.04996 8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z" fill="white">
+        </path>
+      </svg>
+    </a>
   </div>
 
 </div>
 
 <style>
+
+  .hero_scroll{
+    position: absolute;
+    bottom: 50px;
+  }
+  .lkn_scroll {
+    animation: scroll-down 3s infinite;
+    width: 50px;
+    display: block;
+  }
+
+/* Animate scroll icon */
+@keyframes scroll-down {
+  0%, 100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+
+  35% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+}
   .video{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity .4s ease-out;
+    &.loaded{
+      opacity: 1;
+    }
   }
   .hero:before {
     content: '';
@@ -95,3 +140,20 @@ import heroImage from '../../../assets/images/home/bg-hero.jpg'
 
 }
 </style>
+
+
+<script is:inline data-astro-rerun>
+
+  document.addEventListener('astro:page-load', () => {
+
+    const video = document.getElementById('hero-video');
+    if( !video ) return
+
+    video.classList.add('loaded');
+    video.currentTime = 0;  // Reiniciar el video si es necesario
+    video.play()
+
+  });
+
+</script>
+
