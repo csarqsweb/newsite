@@ -4,7 +4,8 @@ import Footer from '@/components/Common/Footer/Footer';
 import Header from '@/components/Common/Header/Header';
 import Layout from '@/layouts/Layout';
 import { Image } from 'astro:assets';
-import Image1 from '../../assets/images/team/josefina.jpg';
+import Image1 from '../../assets/images/team/arquitecta-1.jpg';
+import Image2 from '../../assets/images/team/arquitecta-2.jpg';
 
 
 ---
@@ -33,12 +34,13 @@ import Image1 from '../../assets/images/team/josefina.jpg';
 					<div class="card">
 						<figure>
 							<Image
-									class="card_img"
-									src={Image1}
-									width={Image1.width / 2}
-									densities={[1.5, 2]}
-									alt="Josefina"
-								/>
+								loading='eager'
+								class="card_img"
+								src={Image1}
+								width={Image1.width / 2}
+								densities={[1.5, 2]}
+								alt="Josefina"
+							/>
 						</figure>
 						<h3 class="card_title">Josefina Clivio
 							<span>— Arquitecta</span>
@@ -49,12 +51,13 @@ import Image1 from '../../assets/images/team/josefina.jpg';
 					<div class="card">
 						<figure>
 							<Image
-									class="card_img"
-									src={Image1}
-									width={Image1.width / 2}
-									densities={[1.5, 2]}
-									alt="Josefina"
-								/>
+								loading='eager'
+								class="card_img"
+								src={Image2}
+								width={Image2.width / 2}
+								densities={[1.5, 2]}
+								alt="Josefina"
+							/>
 						</figure>
 						<h3 class="card_title">Josefina Clivio
 							<span>— Arquitecta</span>
@@ -127,6 +130,12 @@ section{
 		color: #444;
 		font-size: 14px;
 	}
+}
+.card_img{
+	max-width: 315px;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+    height: inherit;
 }
 .card_title{
 	font-size: 16px;
