@@ -6,13 +6,22 @@ import heroImage from '../../../assets/images/home/bg-hero.jpg'
 
 <div class="hero">
 
-  <Image
+  <!-- <Image
     class="img"
     src={heroImage}
     width={heroImage.width / 2}
     densities={[1.5, 2]}
     alt="Somos un estudio de arquitectura."
-    loading="eager" quality="100"/>
+    loading="eager" quality="100"/> -->
+
+
+    <video class="video" width="600" autoplay loop muted playsinline>
+      <source src="https://res.cloudinary.com/dacqh0npj/video/upload/v1726099415/csarq/4457865-uhd_3840_2160_24fps_dgmaud.mp4" type="video/mp4">
+      <source src="https://res.cloudinary.com/dacqh0npj/video/upload/v1726099282/csarq/4457865-uhd_3840_2160_24fps_1_tnox5n.webm" type="video/webm">
+      <source src="https://res.cloudinary.com/dacqh0npj/video/upload/v1726099070/csarq/4457865-uhd_3840_2160_24fps_pt2tok.ogg" type="video/ogg">
+
+      Tu navegador no soporta el elemento de video.
+    </video>
 
   <div class="row">
     <h1>
@@ -24,6 +33,18 @@ import heroImage from '../../../assets/images/home/bg-hero.jpg'
 </div>
 
 <style>
+  .video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #00000061;
+}
   .hero{
     position: relative;
     height: 100vh;
