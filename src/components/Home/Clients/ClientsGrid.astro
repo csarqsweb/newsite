@@ -121,6 +121,34 @@ const isHome = Astro.url.pathname === '/';
   }
   @media screen and (min-width: 768px) {
 
+    .caption{
+      -webkit-transform: translate3d(0, 4rem, 0);
+      transform: translate3d(0, 4rem, 0);
+
+      transition: transform .7s cubic-bezier(0.39, 0.71, 0.48, 0.98), opacity .6s ease-in-out, -webkit-transform .7s cubic-bezier(0.39, 0.71, 0.48, 0.98);
+      opacity: 0;
+    }
+    a:hover .caption{
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    img{
+      height: auto;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+
+      transition: transform .7s cubic-bezier(0.39, 0.71, 0.48, 0.98), -webkit-transform .7s cubic-bezier(0.39, 0.71, 0.48, 0.98);
+      width: 100%;
+    }
+    figure{
+      position: relative;
+      overflow: hidden;
+    }
+    a:hover img{
+      -webkit-transform: scale(1.15);
+      transform: scale(1.15);
+    }
     .grid{
       flex-direction: row;
     }
