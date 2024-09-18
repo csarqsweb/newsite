@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { image , title, subtitle } = Astro.props
+const { image , title, subtitle, lazyload  } = Astro.props
 
 
 
@@ -11,14 +11,14 @@ const { image , title, subtitle } = Astro.props
   <figure>
       <div class="display">
       <Image
-        loading="eager"
+        loading={lazyload && 'lazy' || 'eager'}
         data-speed=".2"
-              class="img-parallax"
-              src={image}
-              width={image.width / 2}
-              densities={[1.5, 2]}
-              alt=`${title || ''} ${subtitle || ''}`
-            />
+        class="img-parallax"
+        src={image}
+        width={image.width / 2}
+        densities={[1.5, 2]}
+        alt=`${title || ''} ${subtitle || ''}`
+      />
           </div>
     </figure>
   <div class="row">
