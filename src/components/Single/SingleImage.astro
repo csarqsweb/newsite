@@ -1,32 +1,46 @@
 ---
 import { Image } from "astro:assets";
 
-const { image , title ,subtitle } = Astro.props
+const { image , title ,subtitle, lazyload } = Astro.props
 
 ---
 <div class="row">
+  <div class="display">
   <figure>
-
-    <Image
-            class="img"
-            src={image}
-            width={image.width}
-            densities={[1.5, 2]}
-            alt=`${title || ''} ${subtitle || ''}`
-          />
-  </figure>
+      <Image
+        loading={lazyload && 'lazy' || 'eager'}
+        data-speed=".2"
+        class="img-parallax"
+        src={image}
+        width={image.width}
+        densities={[1.5, 2]}
+        alt=`${title || ''} ${subtitle || ''}`
+      />
+    </figure>
+  </div>
     <span>{title && <b>{title}</b>} {subtitle && subtitle}</span>
 </div>
 
 <style>
-  figure{
+   figure{
+    position: absolute;
+    height: 100%;
     width: 100%;
+  }
+  .display{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
     aspect-ratio: 16 / 9; /* Proporción deseada */
   }
   img{
+    will-change: transform;
     width: 100%;
     height: 100%;
-    object-fit: cover; /
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   span{
     font-weight: 300;
@@ -47,4 +61,46 @@ const { image , title ,subtitle } = Astro.props
     width: 100%;
     box-sizing: border-box;
   }
+  @media screen and (min-width: 768px) {
+    figure{
+      height: 115%;
+    }
+  }
 </style>
+
+
+<script is:inline >
+
+  document.addEventListener('astro:page-load', () => {
+
+
+    const parallaxElements = document.querySelectorAll(".img-parallax");
+
+    var viewportWidth = window.innerWidth;
+
+      // Assign the viewport height to the section with the class .section--home.
+
+      if ( viewportWidth < 760) return
+
+    function updateParallax() {
+      parallaxElements.forEach(function (element) {
+        const rect = element.getBoundingClientRect();
+        const speed = parseFloat(element.getAttribute("data-speed"));
+
+        // Verificar si el elemento está en el viewport
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          const yPos = -(rect.top * speed);
+          element.style.transform = "translate3d(0, " + yPos + "px, 0)";
+        } else {
+          element.style.transform = "translate3d(0, 0, 0)";
+        }
+      });
+    }
+
+    // Actualizar el efecto parallax al desplazarse y al cargar la página
+    window.addEventListener("scroll", updateParallax);
+    window.addEventListener("resize", updateParallax);
+
+    updateParallax();
+  })
+  </script>

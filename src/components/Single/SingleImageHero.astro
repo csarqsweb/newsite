@@ -8,8 +8,8 @@ const { image , title, subtitle, lazyload  } = Astro.props
 ---
 
 <div class="image_hero">
-  <figure>
-      <div class="display">
+  <div class="display">
+    <figure>
       <Image
         loading={lazyload && 'lazy' || 'eager'}
         data-speed=".2"
@@ -19,14 +19,14 @@ const { image , title, subtitle, lazyload  } = Astro.props
         densities={[1.5, 2]}
         alt=`${title || ''} ${subtitle || ''}`
       />
-          </div>
     </figure>
+  </div>
   <div class="row">
     <span>{ title && <b>{title}</b> } { subtitle && subtitle}</span>
   </div>
 </div>
 <style>
-   figure{
+   .display{
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -51,7 +51,7 @@ const { image , title, subtitle, lazyload  } = Astro.props
     }
     }
   }
-  .display{
+  figure{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -82,7 +82,7 @@ const { image , title, subtitle, lazyload  } = Astro.props
   }
 
   @media screen and (min-width: 768px) {
-    .display{
+    figure{
       height: 115%;
     }
   }
