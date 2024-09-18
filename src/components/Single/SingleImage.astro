@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { image } = Astro.props
+const { image , title ,subtitle } = Astro.props
 
 ---
 <div class="row">
@@ -12,10 +12,10 @@ const { image } = Astro.props
             src={image}
             width={image.width}
             densities={[1.5, 2]}
-            alt="Somos un estudio de arquitectura"
+            alt=`${title || ''} ${subtitle || ''}`
           />
   </figure>
-    <span><b>Quintessa Estate</b> CALIFORNIA</span>
+    <span>{title && <b>{title}</b>} {subtitle && subtitle}</span>
 </div>
 
 <style>
@@ -35,10 +35,12 @@ const { image } = Astro.props
     letter-spacing: 0.12em;
     margin: 12px 0 0;
     display: block;
+    text-transform: uppercase;
     b{
       font-weight: 300;
       font-size: 17px;
       letter-spacing: 0;
+      text-transform: none;
     }
   }
   .row{
