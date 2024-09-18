@@ -16,7 +16,8 @@ const { images } = Astro.props;
             src={image}
             width={image.width / 2}
             densities={[1.5, 2]}
-            alt="Somos un estudio de arquitectura"
+            alt={`${title || ''} ${subtitle || ''}`}
+
           />
       {/* <img src={src} alt={title} width="520" /> */}
 
