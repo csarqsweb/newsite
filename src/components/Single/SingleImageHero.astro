@@ -9,16 +9,18 @@ const { image } = Astro.props
 
 <div class="image_hero">
   <figure>
-    <Image
-      loading="eager"
-            class="img"
-            src={image}
-            width={image.width / 2}
-            densities={[1.5, 2]}
-            alt="Somos un estudio de arquitectura"
-          />
-
-  </figure>
+      <div class="display">
+      <Image
+        loading="eager"
+        data-speed=".2"
+              class="img-parallax"
+              src={image}
+              width={image.width / 2}
+              densities={[1.5, 2]}
+              alt="Somos un estudio de arquitectura"
+            />
+          </div>
+    </figure>
   <div class="row">
     <span><b>Quintessa Estate</b> CALIFORNIA</span>
   </div>
@@ -26,13 +28,42 @@ const { image } = Astro.props
 <style>
    figure{
     width: 100%;
+    position: relative;
+    overflow: hidden;
     aspect-ratio: 16 / 9; /* Proporción deseada */
+
+    &::after{
+      content: "";
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      height: 1px;
+      box-shadow: 0 -3px 10px rgba(0, 0, 0, 1);
+    }
+    &::before{
+      content: "";
+        width: 100%;
+        position: absolute;
+        top: 0;
+        height: 1px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
+        z-index: 2;
+    }
+    }
+  }
+  .display{
+    position: absolute;
+    height: 100%;
+    width: 100%;
   }
   img{
+    will-change: transform;
     width: 100%;
     height: 100%;
-    object-fit: cover; /
-
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   span{
     font-weight: 300;
@@ -47,4 +78,47 @@ const { image } = Astro.props
       letter-spacing: 0;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    .display{
+      height: 115%;
+    }
+  }
 </style>
+
+
+<script is:inline >
+
+document.addEventListener('astro:page-load', () => {
+
+
+  const parallaxElements = document.querySelectorAll(".img-parallax");
+
+  var viewportWidth = window.innerWidth;
+
+    // Assign the viewport height to the section with the class .section--home.
+
+    if ( viewportWidth < 760) return
+
+  function updateParallax() {
+    parallaxElements.forEach(function (element) {
+      const rect = element.getBoundingClientRect();
+      const speed = parseFloat(element.getAttribute("data-speed"));
+
+      // Verificar si el elemento está en el viewport
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        const yPos = -(rect.top * speed);
+        element.style.transform = "translate3d(0, " + yPos + "px, 0)";
+      } else {
+        element.style.transform = "translate3d(0, 0, 0)";
+      }
+    });
+  }
+
+  // Actualizar el efecto parallax al desplazarse y al cargar la página
+  window.addEventListener("scroll", updateParallax);
+  window.addEventListener("resize", updateParallax);
+
+  updateParallax();
+})
+</script>
