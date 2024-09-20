@@ -68,21 +68,15 @@ const { image , title ,subtitle, lazyload } = Astro.props
   }
 </style>
 
-<script is:inline >
-  let isParallaxInitialized = false;
-
+<script is:inline>
   document.addEventListener('astro:page-load', () => {
-
-    // Verificar si los eventos ya están registrados
-    if (isParallaxInitialized) return;
+    if (window.isParallaxInitialized) return; // Usar 'window' para asegurar que es global
 
     const parallaxElements = document.querySelectorAll(".img-parallax");
+    let viewportWidth = window.innerWidth;
 
-    var viewportWidth = window.innerWidth;
-
-      // Assign the viewport height to the section with the class .section--home.
-
-      if ( viewportWidth < 760) return
+    // Si la pantalla es pequeña, no hacer nada
+    if (viewportWidth < 760) return;
 
     function updateParallax() {
       parallaxElements.forEach(function (element) {
@@ -104,6 +98,8 @@ const { image , title ,subtitle, lazyload } = Astro.props
     window.addEventListener("resize", updateParallax);
 
     updateParallax();
-    isParallaxInitialized = true;
-  })
-  </script>
+
+    // Marcar que el parallax ya ha sido inicializado
+    window.isParallaxInitialized = true;
+  });
+</script>
