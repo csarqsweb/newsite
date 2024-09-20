@@ -87,40 +87,50 @@ const { image , title, subtitle, lazyload  } = Astro.props
     }
   }
 </style>
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    // Primero, eliminar cualquier evento anterior si ya estaba registrado
+    if (window.isImageHeroInitial) {
+      window.removeEventListener('scroll', updateEffect);
+      window.removeEventListener('resize', updateEffect);
+    }
 
+    const parallaxElements = document.querySelectorAll(".img-parallax");
+    var viewportWidth = window.innerWidth;
 
-<script is:inline >
+    // Si el ancho de la pantalla es menor a 760px, no ejecutar el parallax
+    if (viewportWidth < 760) return;
 
-document.addEventListener('astro:page-load', () => {
+    function updateEffect() {
+      parallaxElements.forEach(function (element) {
+        const rect = element.getBoundingClientRect();
+        const speed = parseFloat(element.getAttribute("data-speed"));
 
+        // Verificar si el elemento está en el viewport
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          const yPos = -(rect.top * speed);
+          element.style.transform = "translate3d(0, " + yPos + "px, 0)";
+        } else {
+          element.style.transform = "translate3d(0, 0, 0)";
+        }
+      });
+    }
 
-  const parallaxElements = document.querySelectorAll(".img-parallax");
+    // Actualizar el efecto parallax al desplazarse y al cargar la página
+    window.addEventListener("scroll", updateEffect);
+    window.addEventListener("resize", updateEffect);
 
-  var viewportWidth = window.innerWidth;
+    // Ejecutar la actualización inicial del parallax
+    updateEffect();
 
-    // Assign the viewport height to the section with the class .section--home.
+    // Marcar que los eventos ya se han registrado
+    window.isImageHeroInitial = true;
 
-    if ( viewportWidth < 760) return
-
-  function updateParallax() {
-    parallaxElements.forEach(function (element) {
-      const rect = element.getBoundingClientRect();
-      const speed = parseFloat(element.getAttribute("data-speed"));
-
-      // Verificar si el elemento está en el viewport
-      if (rect.top < window.innerHeight && rect.bottom >= 0) {
-        const yPos = -(rect.top * speed);
-        element.style.transform = "translate3d(0, " + yPos + "px, 0)";
-      } else {
-        element.style.transform = "translate3d(0, 0, 0)";
-      }
+    // Escuchar cuando se navegue fuera de la página
+    document.addEventListener('astro:beforeNavigate', () => {
+      window.removeEventListener('scroll', updateEffect);
+      window.removeEventListener('resize', updateEffect);
+      window.isImageHeroInitial = false; // Resetear la variable para permitir que se registre de nuevo
     });
-  }
-
-  // Actualizar el efecto parallax al desplazarse y al cargar la página
-  window.addEventListener("scroll", updateParallax);
-  window.addEventListener("resize", updateParallax);
-
-  updateParallax();
-})
+  });
 </script>
