@@ -32,12 +32,17 @@ import Layout from '@/layouts/Layout';
 	main:before {
     content: '';
     position: absolute;
-    box-shadow: 0px 0px 80px 80px rgba(0, 0, 0, .3);
-    width: 100%;
+		box-shadow: 0 0 110px 110px #000000d6;
 		top: 0;
 		left: 0;
     z-index: 2;
-}
+    width: 100%;
+	}
+	@media screen and (min-width: 768px) {
+		main:before {
+    	box-shadow: 0px 0px 80px 80px rgba(0, 0, 0, .3);
+		}
+	}
 .bg{
 	background-color: white;
 }
