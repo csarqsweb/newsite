@@ -133,14 +133,16 @@ span{
 
 </style>
 
-
-<script client:load >
-  (function () {
-    "use strict";
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    // Eliminar cualquier listener de scroll o resize existente
+    window.removeEventListener("scroll", updateParallax);
+    window.removeEventListener("resize", updateParallax);
 
     const parallaxElements = document.querySelectorAll(".image_item");
 
     function updateParallax() {
+
       parallaxElements.forEach(function (element) {
         const rect = element.getBoundingClientRect();
         const speed = parseFloat(element.getAttribute("data-speed"));
@@ -160,5 +162,8 @@ span{
     window.addEventListener("resize", updateParallax);
 
     updateParallax();
-  })();
+
+    // Marcar que el parallax ya ha sido inicializado
+    window.isParallaxInitialized = true;
+  });
 </script>
