@@ -20,7 +20,7 @@ const isHome = Astro.url.pathname === '/';
             src={Image1}
             width={Image1.width / 2}
             densities={[1.5, 2]}
-            alt="Casa Acanforest OBRA NUEVA"
+            alt="Casa Acanforest"
           />
 
           <span class="caption">Casa Acanforest  <span>OBRA NUEVA</span></span>
@@ -31,7 +31,7 @@ const isHome = Astro.url.pathname === '/';
       <a href="/proyectos/nuevo" title="Casa Chacras">
         <figure>
           <Image
-          loading="lazy" class="img" src={Image2} alt="Casa Chacras PROYECTO" width={Image2.width / 2}
+          loading="lazy" class="img" src={Image2} alt="Casa Chacras" width={Image2.width / 2}
           densities={[1.5, 2]}/>
           <span class="caption">Casa Chacras  <span>PROYECTO</span></span>
         </figure>
@@ -43,7 +43,7 @@ const isHome = Astro.url.pathname === '/';
       <a href="/proyectos/nuevo" title="Casa La Cuesta">
         <figure>
           <Image
-          loading={isHome ? 'lazy': "eager"} class="img" src={Image2} alt="Casa La Cuesta INTERIORISMO" width={Image2.width / 2}
+          loading={isHome ? 'lazy': "eager"} class="img" src={Image2} alt="Casa La Cuesta" width={Image2.width / 2}
           densities={[1.5, 2]}/>
           <span class="caption">Casa La Cuesta  <span>INTERIORISMO</span></span>
         </figure>
@@ -56,7 +56,7 @@ const isHome = Astro.url.pathname === '/';
           loading="lazy" class="img" src={Image1}
           width={Image1.width / 2}
           densities={[1.5, 2]}
-          alt="Casa San Francisco REFORMA"/>
+          alt="Casa San Francisco"/>
           <span class="caption">Casa San Francisco  <span>REFORMA</span></span>
         </figure>
       </a>
