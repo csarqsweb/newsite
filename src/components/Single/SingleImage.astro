@@ -69,9 +69,12 @@ const { image , title ,subtitle, lazyload } = Astro.props
 </style>
 
 <script is:inline >
+  let isParallaxInitialized = false;
 
   document.addEventListener('astro:page-load', () => {
 
+    // Verificar si los eventos ya están registrados
+    if (isParallaxInitialized) return;
 
     const parallaxElements = document.querySelectorAll(".img-parallax");
 
@@ -101,5 +104,6 @@ const { image , title ,subtitle, lazyload } = Astro.props
     window.addEventListener("resize", updateParallax);
 
     updateParallax();
+    isParallaxInitialized = true;
   })
   </script>
