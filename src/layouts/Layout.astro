@@ -2,18 +2,19 @@
 interface Props {
 	title: string;
 	description?: string;
+	ogImage?: string
 }
 
 import Head from '@/components/Common/Head/Head';
 
 // Supports weights 100-900
 import '@fontsource-variable/inter';
-const { title , description } = Astro.props;
+const { title , description, ogImage } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
-	<Head title={title} description={description}/>
+	<Head title={title} description={description} ogImage={ogImage}/>
 
 
 	<body>
