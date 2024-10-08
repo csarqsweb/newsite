@@ -23,7 +23,7 @@ const isHome = Astro.url.pathname === '/';
             alt="Casa Acanforest"
           />
 
-          <span class="caption">Casa Acanforest  <span>OBRA NUEVA</span></span>
+          <span class="caption">Casa Acanforest  <span class="label">OBRA NUEVA</span></span>
         </figure>
       </a>
     </div>
@@ -33,7 +33,7 @@ const isHome = Astro.url.pathname === '/';
           <Image
           loading="lazy" class="img" src={Image2} alt="Casa Chacras" width={Image2.width / 2}
           densities={[1.5, 2]}/>
-          <span class="caption">Casa Chacras  <span>PROYECTO</span></span>
+          <span class="caption">Casa Chacras  <span class="label">PROYECTO</span></span>
         </figure>
       </a>
     </div>
@@ -45,7 +45,7 @@ const isHome = Astro.url.pathname === '/';
           <Image
           loading={isHome ? 'lazy': "eager"} class="img" src={Image2} alt="Casa La Cuesta" width={Image2.width / 2}
           densities={[1.5, 2]}/>
-          <span class="caption">Casa La Cuesta  <span>INTERIORISMO</span></span>
+          <span class="caption">Casa La Cuesta  <span class="label">INTERIORISMO</span></span>
         </figure>
       </a>
     </div>
@@ -57,7 +57,7 @@ const isHome = Astro.url.pathname === '/';
           width={Image1.width / 2}
           densities={[1.5, 2]}
           alt="Casa San Francisco"/>
-          <span class="caption">Casa San Francisco  <span>REFORMA</span></span>
+          <span class="caption">Casa San Francisco  <span class="label">REFORMA</span></span>
         </figure>
       </a>
     </div>
@@ -73,10 +73,10 @@ const isHome = Astro.url.pathname === '/';
     font-size: 17px;
     bottom: 12px;
     left: 12px;
-    span{
-      font-size: 11px;
-      letter-spacing: 0.12em;
-    }
+  }
+  .label{
+    font-size: 11px;
+    letter-spacing: 0.12em;
   }
   .grid{
     display: flex;
