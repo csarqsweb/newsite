@@ -15,7 +15,7 @@
 
   <div class="row">
     <h1>
-      <span>Somos un <b>estudio de arquitectura</b></span>
+      <span class="title">Somos un <b class="bold">estudio de arquitectura</b></span>
       — que transforma ideas en espacio.
     </h1>
 
@@ -75,9 +75,9 @@
     width: 100%;
     z-index: -2;
 
-    &.loaded{
-      opacity: 1;
-    }
+  }
+  .video.loaded{
+    opacity: 1;
   }
   .hero:after {
     bottom: 0;
@@ -121,13 +121,13 @@
     font-weight: 200;
     font-size: 28px;
     max-width: 290px;
-    b {
-      font-weight: 300;
-    }
-    span{
-      display: block;
-      margin-bottom: 10px;
-    }
+  }
+  h1 .bold {
+    font-weight: 300;
+  }
+  h1 .title{
+    display: block;
+    margin-bottom: 10px;
   }
 
   @media screen and (min-width: 768px) {
@@ -138,10 +138,10 @@
       font-size: 66px;
       max-width: inherit;
 
-    span{
+    }
+    h1 .title{
       margin-bottom: 0;
     }
-  }
 
 
 }
