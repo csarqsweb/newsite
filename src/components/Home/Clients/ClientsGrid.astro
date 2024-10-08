@@ -13,7 +13,7 @@ const isHome = Astro.url.pathname === '/';
   <div class="col first">
     <div class="item">
       <a href="/proyectos/nuevo" title="Casa Acanforest">
-        <figure>
+        <figure class="figure">
           <Image
           loading={isHome ? 'lazy': "eager"}
             class="img"
@@ -29,7 +29,7 @@ const isHome = Astro.url.pathname === '/';
     </div>
     <div class="item">
       <a href="/proyectos/nuevo" title="Casa Chacras">
-        <figure>
+        <figure class="figure">
           <Image
           loading="lazy" class="img" src={Image2} alt="Casa Chacras" width={Image2.width / 2}
           densities={[1.5, 2]}/>
@@ -41,7 +41,7 @@ const isHome = Astro.url.pathname === '/';
   <div class="col second">
     <div class="item">
       <a href="/proyectos/nuevo" title="Casa La Cuesta">
-        <figure>
+        <figure class="figure">
           <Image
           loading={isHome ? 'lazy': "eager"} class="img" src={Image2} alt="Casa La Cuesta" width={Image2.width / 2}
           densities={[1.5, 2]}/>
@@ -51,7 +51,7 @@ const isHome = Astro.url.pathname === '/';
     </div>
     <div class="item">
       <a href="/proyectos/nuevo" title="Casa San Francisco">
-        <figure>
+        <figure class="figure">
           <Image
           loading="lazy" class="img" src={Image1}
           width={Image1.width / 2}
@@ -79,37 +79,37 @@ const isHome = Astro.url.pathname === '/';
     }
   }
   .grid{
-      display: flex;
-      gap: 20px;
-      flex-direction: column;
-      justify-content: center;
-    }
-    figure{
-      position: relative;
-      display: flex;
-      &::before{
-        content: '';
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, rgba(217, 217, 217, 0) 25.05%);
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-      }
-    }
-    .caption{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .figure{
+    position: relative;
+    display: flex;
+    &::before{
+      content: '';
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, rgba(217, 217, 217, 0) 25.05%);
       position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
     }
-    .col{
-      gap: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    img{
-      max-width: 100%;
-      height: auto;
-    }
+  }
+  .caption{
+    position: absolute;
+  }
+  .col{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  img{
+    max-width: 100%;
+    height: auto;
+  }
 
   @media screen and (max-width: 768px) {
     img{
@@ -140,7 +140,7 @@ const isHome = Astro.url.pathname === '/';
       transition: transform .7s cubic-bezier(0.39, 0.71, 0.48, 0.98), -webkit-transform .7s cubic-bezier(0.39, 0.71, 0.48, 0.98);
       width: 100%;
     }
-    figure{
+    .figure{
       position: relative;
       overflow: hidden;
     }
