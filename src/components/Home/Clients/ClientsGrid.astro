@@ -87,18 +87,20 @@ const isHome = Astro.url.pathname === '/';
   .figure{
     position: relative;
     display: flex;
-    &::before{
-      content: '';
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, rgba(217, 217, 217, 0) 25.05%);
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-    }
+  }
+  .figure::before{
+    content: '';
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, rgba(217, 217, 217, 0) 25.05%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
   }
   .caption{
     position: absolute;
+    z-index: 2;
   }
   .col{
     gap: 20px;
