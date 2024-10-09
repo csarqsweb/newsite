@@ -11,7 +11,7 @@ interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
 	author: 'Patricio Baliña', // Site author
-	title: 'CS Arquitectura', // Site title.
+	title: 'CS Arquitectas', // Site title.
 	description:
 		'Somos un estudio de arquitectura dedicado a transformar ideas en espacios únicos y funcionales. Combinamos creatividad, innovación y experiencia para diseñar ambientes que reflejan tu visión y necesidades.', // Description to display in the meta tags
 	tags: 'estudio de arquitectura, diseño arquitectónico, transformación de espacios, innovación en arquitectura, diseño personalizado, experiencia en arquitectura',
