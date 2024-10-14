@@ -1,17 +1,17 @@
 {
-  "name": "newsite",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@fontsource-variable/inter": "^5.0.20",
-    "astro": "^4.14.5",
-    "sharp": "^0.33.5"
-  }
+	"name": "csarq",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@fontsource-variable/inter": "^5.0.20",
+		"astro": "^4.14.5",
+		"sharp": "^0.33.5"
+	}
 }
